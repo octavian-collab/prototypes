@@ -1,0 +1,2528 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bono · Facturi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:ital,wght@0,500;0,600;1,500;1,600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:ital,wght@0,500;0,600;1,500;1,600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   BONO DS — verbatim paste (bono-ds.css)
+   ═══════════════════════════════════════════════════════════════ */
+:root{--c-pink:#EE4379;--c-pink-deep:#C9255B;--c-pink-tint:#FDE7F0;--c-pink-ultra:rgba(238,67,121,0.06);--c-white:#FFFFFF;--c-bej-0:#FBFAF7;--c-bej-1:#EFEBE4;--c-dark:#110D10;--c-ink:#110D10;--c-fog:#7A7570;--c-mist:#ABA59E;--c-rule-card:rgba(17,13,16,0.12);--c-rule:rgba(17,13,16,0.10);--c-rule-soft:rgba(17,13,16,0.06);--c-rule-solid:#DDD6C9;--c-rule-soft-solid:#EAE3D5;--c-success:#1F7A4D;--c-success-bg:#ECF7F1;--c-warn:#B8580A;--c-warn-bg:#FBF1E2;--c-error:#B91C1C;--c-error-bg:#FCEAEA;--c-ai:#A8336E;--c-ai-bg:#F4E4EE;--c-ai-grad:linear-gradient(135deg,#EE4379 0%,#7B2A6E 100%);--r-xs:6px;--r-sm:10px;--r-md:14px;--r-lg:20px;--r-xl:24px;--r-pill:9999px;--sp-4:4px;--sp-8:8px;--sp-12:12px;--sp-16:16px;--sp-24:24px;--sp-28:28px;--sp-40:40px;--sp-56:56px;--sp-92:92px;--sh-sm:0 1px 3px rgba(17,13,16,0.06),0 1px 2px rgba(17,13,16,0.04);--sh-pink:0 6px 16px rgba(238,67,121,0.30);--grid-color:rgba(17,13,16,0.15);--grid-size:32px;--grid-radius:1px;--grid-edge:1.5px;--c-bg:var(--c-bej-0);--c-bg-deep:var(--c-bej-1);--c-bg-card:var(--c-bej-1);--c-surface:var(--c-white);--c-night:var(--c-dark);--c-paper:var(--c-bej-0)}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background-color:var(--c-bg);color:var(--c-ink);font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.has-grid{position:relative;isolation:isolate}
+.has-grid::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:radial-gradient(circle,var(--grid-color) var(--grid-radius),transparent var(--grid-edge));background-size:var(--grid-size) var(--grid-size)}
+.has-grid>*{position:relative;z-index:1}
+body.bg-deep{background-color:var(--c-bej-1)}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+em{font-style:italic}
+img,svg{display:block;max-width:100%}
+.sec-page,.sec-app,.sec-mkt,.sec-mkt-grid{background-color:transparent}
+.sec-tonal{background-color:var(--c-bej-1)}
+.sec-dark{background-color:var(--c-dark);color:#fff}
+.card-hairline{background:var(--c-white);border:1px solid rgba(17,13,16,0.12);border-radius:var(--r-md)}
+.card-tonal{background:var(--c-bej-1);border:none;border-radius:var(--r-md)}
+/* Typography */
+.t60{font-family:'Inter',sans-serif;font-size:clamp(36px,5.5vw,60px);font-weight:700;line-height:1.10;letter-spacing:-0.04em;color:var(--c-ink);margin:0}
+.t48{font-family:'Inter',sans-serif;font-size:clamp(32px,4.5vw,48px);font-weight:700;line-height:1.08;letter-spacing:-0.03em;color:var(--c-ink);margin:0}
+.t40{font-family:'Inter',sans-serif;font-size:clamp(28px,3.8vw,40px);font-weight:700;line-height:1.15;letter-spacing:-0.03em;color:var(--c-ink);margin:0}
+.t32{font-family:'Inter',sans-serif;font-size:clamp(24px,3.2vw,32px);font-weight:700;line-height:1.19;letter-spacing:-0.02em;color:var(--c-ink);margin:0}
+.t28{font-family:'Inter',sans-serif;font-size:clamp(22px,2.8vw,28px);font-weight:700;line-height:1.21;letter-spacing:-0.02em;color:var(--c-ink);margin:0}
+.t24{font-family:'Inter',sans-serif;font-size:24px;font-weight:400;line-height:30px;letter-spacing:-0.01em;color:var(--c-ink);margin:0}
+.t18{font-family:'Inter',sans-serif;font-size:18px;font-weight:600;line-height:24px;letter-spacing:-0.01em;color:var(--c-ink);margin:0}
+.t16{font-family:'Inter',sans-serif;font-size:16px;font-weight:400;line-height:24px;letter-spacing:0;color:var(--c-ink);margin:0}
+.t14{font-family:'Inter',sans-serif;font-size:14px;font-weight:500;line-height:20px;letter-spacing:0;color:var(--c-ink);margin:0}
+.t12{font-family:'Inter',sans-serif;font-size:12px;font-weight:600;line-height:16px;letter-spacing:0.10em;text-transform:uppercase;color:var(--c-fog);margin:0;display:inline-flex;align-items:center;gap:8px}
+.t12 .dot{width:5px;height:5px;border-radius:50%;background:var(--c-pink)}
+.t12.brand{color:var(--c-pink-deep)}
+.tn40{font-family:'Inter',sans-serif;font-size:clamp(28px,3.5vw,40px);font-weight:700;line-height:1;letter-spacing:-0.04em;font-variant-numeric:tabular-nums;color:var(--c-ink)}
+.tn28{font-family:'Inter',sans-serif;font-size:clamp(22px,2.5vw,28px);font-weight:700;line-height:1;letter-spacing:-0.02em;font-variant-numeric:tabular-nums;color:var(--c-ink)}
+.t-suffix-lg{font-family:'Inter',sans-serif;font-size:13px;font-weight:400;line-height:1;letter-spacing:0;color:var(--c-mist)}
+.t-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;line-height:16px;letter-spacing:0.10em;text-transform:uppercase;color:var(--c-fog);margin:0}
+.t-eyebrow .dot{width:5px;height:5px;border-radius:50%;background:var(--c-pink)}
+.t60 em,.t48 em,.t40 em{font-family:'Fraunces',serif;font-style:italic;font-weight:600;color:var(--c-pink);letter-spacing:inherit}
+/* Buttons */
+.btn{height:40px;padding:0 24px;border-radius:var(--r-lg);font-family:'Inter',sans-serif;font-size:14px;font-weight:600;letter-spacing:-0.005em;border:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:7px;transition:all 140ms;white-space:nowrap}
+.btn:disabled{opacity:0.4;cursor:not-allowed}
+.btn.primary{background:var(--c-pink);color:#fff}
+.btn.primary:hover:not(:disabled){background:var(--c-pink-deep);transform:translateY(-1px);box-shadow:var(--sh-pink)}
+.btn.secondary{background:var(--c-bg-card);color:var(--c-ink)}
+.btn.secondary:hover:not(:disabled){background:var(--c-bg-deep)}
+.btn.ghost{background:transparent;color:var(--c-fog)}
+.btn.ghost:hover:not(:disabled){color:var(--c-ink);background:var(--c-bg-card)}
+.btn.dark{background:var(--c-night);color:#fff}
+.btn.outline{background:transparent;color:var(--c-ink);box-shadow:inset 0 0 0 1px var(--c-rule)}
+.btn.outline:hover:not(:disabled){background:var(--c-bg-card)}
+.btn.outline-pink{background:var(--c-white);color:var(--c-ink);box-shadow:inset 0 0 0 1px var(--c-pink)}
+.btn.outline-pink:hover:not(:disabled){background:var(--c-pink);color:#fff}
+.btn.danger{background:var(--c-error);color:#fff}
+.btn.danger:hover:not(:disabled){background:#9D1818}
+.btn.lg{height:44px;padding:0 32px;font-size:16px;border-radius:var(--r-xl)}
+.btn.sm{height:30px;padding:0 18px;font-size:13px;border-radius:var(--r-pill)}
+.btn.xs{height:26px;padding:0 14px;font-size:12px;border-radius:var(--r-pill)}
+.btn.full{width:100%}
+.btn.icon-only{padding:0;aspect-ratio:1}
+/* Badges */
+.badge{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:var(--r-pill);font-family:'Inter',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.04em;text-transform:uppercase;white-space:nowrap}
+.badge.success{background:var(--c-success-bg);color:var(--c-success)}
+.badge.warn{background:var(--c-warn-bg);color:var(--c-warn)}
+.badge.error{background:var(--c-error-bg);color:var(--c-error)}
+.badge.neutral{background:var(--c-bg-card);color:var(--c-fog)}
+.badge.pink{background:var(--c-pink-tint);color:var(--c-pink-deep)}
+.badge .dot{width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.85}
+/* Tabs */
+.tabs{display:inline-flex;padding:3px;background:var(--c-bg-card);border-radius:var(--r-pill)}
+.tabs button{font-family:'Inter',sans-serif;font-size:13px;font-weight:500;background:transparent;border:none;cursor:pointer;padding:7px 16px;border-radius:var(--r-pill);color:var(--c-fog);transition:all 140ms;letter-spacing:-0.005em;display:inline-flex;align-items:center;gap:6px}
+.tabs button:hover{color:var(--c-ink)}
+.tabs button.active{background:var(--c-surface);color:var(--c-ink);box-shadow:0 1px 2px rgba(0,0,0,0.06)}
+/* Switch */
+.switch{width:36px;height:20px;background:var(--c-bg-card);border-radius:var(--r-pill);position:relative;cursor:pointer;transition:background 140ms;border:none;padding:0}
+.switch::after{content:'';position:absolute;top:2px;left:2px;width:16px;height:16px;background:var(--c-surface);border-radius:50%;box-shadow:var(--sh-sm);transition:transform 160ms}
+.switch.on{background:var(--c-pink)}
+.switch.on::after{transform:translateX(16px)}
+/* Alerts */
+.alert{border-radius:var(--r-md);padding:14px 16px;display:flex;align-items:flex-start;gap:12px;font-family:'Inter',sans-serif;font-size:14px;line-height:1.5}
+.alert .ic{flex-shrink:0;margin-top:1px}
+.alert.info{background:var(--c-bg-card);color:var(--c-ink)}
+.alert.warn{background:var(--c-warn-bg);color:var(--c-warn)}
+.alert.brand{background:var(--c-pink-ultra);color:var(--c-pink-deep);border:1px solid rgba(238,67,121,.18)}
+/* Fields (base) */
+.field{display:flex;flex-direction:column;gap:4px}
+.field-label{font-family:'Inter',sans-serif;font-size:12px;font-weight:500;line-height:16px;letter-spacing:0.04em;color:var(--c-fog);padding-left:16px}
+.field-help{font-family:'Inter',sans-serif;font-size:12px;font-weight:400;line-height:16px;color:var(--c-fog);padding-left:16px}
+/* Vox FAB */
+.vox-fab{position:fixed;bottom:24px;right:24px;z-index:90;background:var(--c-night);color:#fff;border:none;border-radius:18px;padding:12px 18px;display:flex;flex-direction:column;align-items:flex-start;gap:2px;box-shadow:0 12px 32px -10px rgba(15,14,12,0.35);cursor:pointer;transition:transform 140ms;font-family:'Inter',sans-serif}
+.vox-fab:hover{transform:translateY(-2px)}
+.vox-fab span:first-child{font-size:14px;font-weight:500}
+.vox-fab em{font-family:'Fraunces',serif;font-style:italic;color:var(--c-pink);font-weight:500}
+.vox-fab .meta{font-size:11px;color:rgba(255,255,255,0.55);letter-spacing:0.04em}
+/* Utils */
+.stack-sm>*+*{margin-top:8px}
+.stack>*+*{margin-top:16px}
+.row{display:flex;align-items:center;gap:10px}
+.divider{height:1px;background:var(--c-rule-soft);border:none;margin:20px 0}
+
+/* ═══════════════════════════════════════════════════════════════
+   PAGE-SPECIFIC — Invoice flow
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Screen system ── */
+.screen{display:none;flex-direction:column;min-height:100dvh}
+.screen.active{display:flex}
+
+/* ── Topbar ── */
+.topbar{
+  display:flex;align-items:center;gap:10px;
+  padding:12px 16px;
+  background:rgba(251,250,247,.92);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--c-rule-soft);
+  flex-shrink:0;position:sticky;top:0;z-index:10;
+}
+.tb-title{font-size:15px;font-weight:600;color:var(--c-ink)}
+.tb-sub{font-size:11px;color:var(--c-fog);margin-top:1px}
+.close-btn{background:none;border:none;font-size:14px;color:var(--c-fog);padding:0;line-height:1;cursor:pointer}
+
+/* ── Step indicator ── */
+.step-bar{display:flex;justify-content:center;gap:6px;padding:12px 0 2px;flex-shrink:0}
+.step-pill{height:4px;border-radius:999px;background:var(--c-bej-1);transition:all .24s}
+.step-pill.active{background:var(--c-pink);width:28px}
+.step-pill.done{background:var(--c-success);width:14px}
+.step-pill.upcoming{width:8px}
+
+/* ── Screen body ── */
+.sbody{flex:1;overflow-y:auto;padding:0 16px 120px}
+
+/* ── Eyebrow ── */
+.eyebrow{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--c-fog);display:flex;align-items:center;gap:6px;padding:18px 0 8px}
+.eyebrow .dot{width:5px;height:5px;border-radius:50%;background:var(--c-pink)}
+
+/* ── Bottom CTA (mobile) ── */
+.bottom-cta{
+  position:fixed;bottom:0;left:50%;transform:translateX(-50%);
+  width:100%;max-width:430px;z-index:20;
+  padding:12px 16px calc(20px + env(safe-area-inset-bottom,0px));
+  background:rgba(251,250,247,.96);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-top:1px solid var(--c-rule-soft);
+}
+.btn-primary{
+  width:100%;height:52px;background:var(--c-pink);color:#fff;
+  border:none;border-radius:999px;font-size:16px;font-weight:600;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  box-shadow:var(--sh-pink);transition:all .14s;cursor:pointer;font-family:inherit;
+}
+.btn-primary:active{transform:scale(.98)}
+.btn-primary:disabled{opacity:.4;box-shadow:none;cursor:not-allowed;transform:none}
+.btn-tonal{background:var(--c-bej-1);color:var(--c-ink);box-shadow:none}
+.btn-outline-bottom{background:transparent;color:var(--c-fog);box-shadow:none;font-size:14px;height:40px;margin-top:4px}
+
+/* ── Search ── */
+.search-wrap{position:relative;margin:12px 0}
+.search-wrap input{
+  width:100%;height:46px;padding:0 16px 0 44px;
+  background:var(--c-surface);border:1px solid var(--c-rule-card);border-radius:999px;
+  font-size:15px;color:var(--c-ink);outline:none;transition:border-color .14s,box-shadow .14s;
+  font-family:inherit;
+}
+.search-wrap input::placeholder{color:var(--c-mist)}
+.search-wrap input:focus{border-color:var(--c-fog);box-shadow:0 0 0 3px rgba(17,13,16,.08)}
+.search-ic{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--c-fog);pointer-events:none;width:16px;height:16px}
+
+/* ── Invoice list ── */
+.inv-list{display:flex;flex-direction:column;padding-top:4px}
+.inv-item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--c-rule-soft);cursor:pointer;transition:opacity .12s}
+.inv-item:last-child{border-bottom:none}
+.inv-item:hover{opacity:.75}
+.inv-icon{width:40px;height:40px;border-radius:10px;background:var(--c-bej-1);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;letter-spacing:-.03em;flex-shrink:0}
+.av-0{background:#D6E8F5;color:#2A5F8F}.av-1{background:#D4EAE4;color:#2D7A67}
+.av-2{background:#EDE0F5;color:#6A3A8A}.av-3{background:#F5E8D0;color:#8A5A1A}
+.av-4{background:#F5DDE0;color:#8A3040}.av-5{background:#DCE8D8;color:#3A6A2D}
+.inv-info{flex:1;min-width:0}
+.inv-name{font-size:14px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:2px;color:var(--c-ink)}
+.inv-cui{font-size:12px;color:var(--c-fog)}
+.inv-right{text-align:right;flex-shrink:0;display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+.inv-date{font-size:12px;color:var(--c-fog)}
+.inv-amount{font-size:14px;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--c-ink)}
+
+/* ── Alert banner ── */
+.alert-banner{
+  display:flex;align-items:center;gap:10px;
+  background:var(--c-pink-tint);border:1px solid rgba(238,67,121,.18);
+  border-radius:12px;padding:12px 14px;margin:12px 0 4px;cursor:pointer;
+}
+.alert-banner-text{flex:1;font-size:14px;color:var(--c-pink-deep);line-height:1.45}
+.alert-banner-text strong{font-weight:600}
+
+/* ── Company list ── */
+.co-item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--c-rule-soft);cursor:pointer;transition:opacity .12s}
+.co-item:last-child{border-bottom:none}
+.co-item:hover{opacity:.75}
+.co-avatar{width:40px;height:40px;border-radius:10px;background:var(--c-bej-1);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;letter-spacing:-.03em;flex-shrink:0}
+.co-name{font-size:14px;font-weight:500;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.co-sub{font-size:12px;color:var(--c-fog)}
+.co-info{flex:1;min-width:0}
+
+/* ── Amount screen ── */
+.amount-screen{flex:1;display:flex;flex-direction:column;align-items:center;padding:20px 16px 16px}
+.ccy-tabs{display:flex;padding:3px;background:var(--c-bej-1);border-radius:999px;margin-bottom:32px}
+.ccy-tabs button{border:none;background:transparent;font-size:13px;font-weight:500;padding:7px 16px;border-radius:999px;color:var(--c-fog);transition:all .14s;cursor:pointer;font-family:inherit}
+.ccy-tabs button.active{background:var(--c-surface);color:var(--c-ink);box-shadow:0 1px 2px rgba(0,0,0,.07)}
+.amount-display-row{display:flex;justify-content:center;margin-bottom:6px;width:100%}
+.amount-display-inner{display:inline-flex;align-items:baseline;gap:4px}
+.amount-symbol{font-size:28px;font-weight:400;color:var(--c-mist);line-height:1;min-width:20px;text-align:center}
+.amount-number{font-size:64px;font-weight:700;letter-spacing:-.045em;line-height:1;color:var(--c-mist);font-variant-numeric:tabular-nums;transition:color .1s}
+.amount-number.has-value{color:var(--c-ink)}
+.amount-input{
+  background:transparent;border:none;outline:none;
+  font-size:64px;font-weight:700;letter-spacing:-.045em;line-height:1;
+  font-variant-numeric:tabular-nums;text-align:right;
+  color:var(--c-ink);width:auto;padding:0;
+  caret-color:var(--c-pink);-webkit-tap-highlight-color:transparent;
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+}
+.amount-input::placeholder{color:var(--c-ink)}
+.amount-ccy{font-size:20px;font-weight:400;color:var(--c-ink)}
+.amount-hint{font-size:12px;color:var(--c-fog);text-align:center;margin-bottom:6px;min-height:16px}
+.tva-toggle-row{display:flex;align-items:center;gap:10px;margin-bottom:24px;cursor:pointer;width:100%;max-width:320px}
+.tva-toggle-row .label{flex:1;font-size:14px;font-weight:500}
+.chips-row{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:20px;width:100%;max-width:320px}
+.chip{height:30px;padding:0 18px;border-radius:999px;background:transparent;border:1px solid var(--c-rule-card);font-size:13px;font-weight:600;color:var(--c-ink);cursor:pointer;font-variant-numeric:tabular-nums;display:inline-flex;align-items:center;font-family:inherit;transition:background .12s}
+.chip:hover{background:var(--c-bej-1)}
+
+
+/* ── Summary detail cards ── */
+.detail-card{background:var(--c-surface);border:1px solid var(--c-rule-card);border-radius:14px;overflow:hidden;margin-bottom:10px}
+.card-header{display:flex;align-items:center;justify-content:space-between;padding:9px 14px;background:var(--c-bej-1);border-bottom:1px solid var(--c-rule-soft)}
+.card-label{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--c-fog);display:flex;align-items:center;gap:5px}
+.card-label .dot{width:4px;height:4px;border-radius:50%;background:var(--c-pink)}
+.card-action{font-size:12px;font-weight:500;color:var(--c-pink);background:none;border:none;padding:0;cursor:pointer;font-family:inherit}
+.card-action:hover{color:var(--c-pink-deep);text-decoration:underline}
+.detail-row{display:flex;align-items:flex-start;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--c-rule-soft);transition:background .12s}
+.detail-row:last-child{border-bottom:none}
+.detail-row.tappable{cursor:pointer}
+.detail-row.tappable:hover{background:rgba(17,13,16,.03)}
+
+/* summary-cards-wrap — transparent on all viewports */
+.summary-cards-wrap{display:contents}
+
+/* ── Inline add-IBAN row (desktop right panel) ── */
+.iban-row-inline{
+  display:flex;align-items:center;gap:8px;
+  padding:10px 14px;border-top:1px solid var(--c-rule-soft);
+}
+.iban-row-inline .ii-input{
+  flex:1;min-width:0;
+  height:38px;
+  padding:0 12px;
+  background:var(--c-surface);
+  border:1.5px solid var(--c-pink);
+  border-radius:var(--r-pill);
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--c-ink);outline:none;
+}
+.iban-row-inline .ii-input::placeholder{color:var(--c-mist);font-family:'Inter',sans-serif;font-size:13px;letter-spacing:0;text-transform:none}
+.iban-row-hover{position:relative}
+.iban-row-hover .iban-row-actions{
+  display:none;position:absolute;right:14px;top:50%;
+  transform:translateY(-50%);
+  align-items:center;gap:12px;
+  background:var(--c-bej-1);padding:4px 8px;border-radius:var(--r-sm);
+}
+.iban-row-hover:hover .iban-row-actions{display:flex}
+.iban-row-hover:hover .iban-num{opacity:.4}
+.iban-action{
+  font-size:12px;font-weight:500;color:var(--c-fog);
+  background:none;border:none;cursor:pointer;
+  font-family:inherit;padding:0;
+  transition:color .12s;
+}
+.iban-action:hover{color:var(--c-ink)}
+.iban-action.del{color:var(--c-error)}
+
+/* Detail card component */
+.detail-card{
+  background:var(--c-surface);border:1px solid var(--c-rule-card);
+  border-radius:14px;overflow:hidden;margin-bottom:10px;
+}
+.card-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:9px 14px;background:var(--c-bej-1);
+  border-bottom:1px solid var(--c-rule-soft);
+}
+.card-label{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--c-fog);display:flex;align-items:center;gap:5px}
+.card-label .dot{width:4px;height:4px;border-radius:50%;background:var(--c-pink)}
+.card-action{font-size:12px;font-weight:500;color:var(--c-pink);background:none;border:none;padding:0;cursor:pointer;font-family:inherit}
+.card-action:hover{color:var(--c-pink-deep);text-decoration:underline}
+.detail-row{display:flex;align-items:flex-start;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--c-rule-soft);transition:background .12s}
+.detail-row:last-child{border-bottom:none}
+.detail-row.tappable{cursor:pointer}
+.detail-row.tappable:hover{background:rgba(17,13,16,.03)}
+.detail-label{font-size:12px;color:var(--c-fog);flex-shrink:0;margin-right:12px;padding-top:1px;white-space:nowrap}
+.detail-value{font-size:14px;font-weight:500;text-align:right;font-variant-numeric:tabular-nums;max-width:68%;word-break:break-all;line-height:1.4}
+.detail-value.large{font-size:17px;font-weight:700;letter-spacing:-.02em;white-space:nowrap}
+.detail-value.iban{font-size:11px;font-weight:400}
+.detail-value.muted{font-size:12px;font-weight:400;color:var(--c-fog);font-style:italic}
+.num-dec{font-size:.72em;letter-spacing:0}
+
+/* Mobile layout — compact rows only, cards stay separate */
+@media(max-width:767px){
+  .detail-card{padding:0}
+  .card-header{padding:7px 14px}
+  .detail-row{padding:9px 14px}
+  .detail-label{font-size:11px}
+  .detail-value{font-size:13px}
+  .detail-value.large{font-size:15px}
+  .detail-value.iban{font-size:10px}
+}
+
+/* ── Info card (success) ── */
+.info-card{background:var(--c-surface);border:1px solid var(--c-rule-card);border-radius:14px;overflow:hidden;margin-bottom:10px}
+.info-row{display:flex;justify-content:space-between;align-items:center;padding:11px 14px;border-bottom:1px solid var(--c-rule-soft)}
+.info-row:last-child{border-bottom:none}
+.info-label{font-size:13px;color:var(--c-fog)}
+.info-value{font-size:14px;font-weight:500;font-variant-numeric:tabular-nums}
+
+/* ── Success invoice card ── */
+.inv-card-success{background:var(--c-surface);border:1px solid var(--c-rule-card);border-radius:20px;padding:20px;margin-bottom:10px}
+.inv-card-success .tag{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--c-fog);margin-bottom:4px}
+.inv-card-success .number{font-size:15px;font-weight:700;letter-spacing:-.02em;color:var(--c-ink);margin-bottom:14px}
+.inv-card-success .company{font-size:12px;color:var(--c-fog);margin-bottom:2px}
+.inv-card-success .amount-big{font-size:32px;font-weight:700;letter-spacing:-.04em;color:var(--c-ink);font-variant-numeric:tabular-nums;margin-top:12px;line-height:1}
+.inv-card-success .amount-big .ccy{font-size:14px;font-weight:400;color:var(--c-fog);margin-left:6px}
+.inv-card-success .due{font-size:12px;color:var(--c-fog);margin-top:6px}
+.share-row{display:flex;gap:8px;margin-top:14px;border-top:1px solid var(--c-rule-soft);padding-top:14px}
+.anaf-card{background:var(--c-surface);border:1px solid var(--c-rule-card);border-radius:14px;overflow:hidden;margin-bottom:10px}
+.anaf-top{padding:14px 16px 10px;border-bottom:1px solid var(--c-rule-soft)}
+.anaf-timer-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px}
+.anaf-label{font-size:13px;color:var(--c-fog)}
+.anaf-timer{font-size:22px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+.anaf-body{padding:14px 16px}
+.anaf-info{font-size:14px;color:var(--c-fog);line-height:1.55}
+.anaf-actions{display:flex;gap:8px}
+
+/* ── Sheet ── */
+.sheet-bg{position:fixed;inset:0;z-index:100;background:rgba(17,13,16,.38);display:none;align-items:flex-end}
+.sheet-bg.open{display:flex}
+.sheet{
+  width:100%;background:var(--c-bej-1);border-radius:24px 24px 0 0;
+  padding:16px 16px calc(28px + env(safe-area-inset-bottom,0px));
+  animation:slideUp .22s cubic-bezier(.2,.8,.2,1);
+  max-height:90dvh;overflow-y:auto;box-sizing:border-box;
+}
+@keyframes slideUp{from{transform:translateY(50px);opacity:0}to{transform:none;opacity:1}}
+.sheet-handle{width:36px;height:4px;border-radius:999px;background:rgba(17,13,16,.12);margin:0 auto 20px}
+.sheet-title{font-size:18px;font-weight:700;letter-spacing:-.02em;margin-bottom:4px}
+.sheet-sub{font-size:12px;color:var(--c-fog);line-height:1.5;margin-bottom:20px}
+.sheet-modal-header{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:6px;
+}
+.sheet-modal-header .sheet-title{margin-bottom:0}
+.sheet-close-x{
+  width:36px;height:36px;border-radius:50%;
+  border:none;background:var(--c-bej-1);
+  color:var(--c-fog);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;transition:background .12s,color .12s;padding:0;
+}
+.sheet-close-x:hover{background:var(--c-rule-solid);color:var(--c-ink)}
+.sheet-tabs{display:flex;padding:3px;background:var(--c-rule);border-radius:999px;margin-bottom:20px}
+.sheet-tabs button{flex:1;border:none;background:transparent;font-size:12px;font-weight:500;padding:8px 12px;border-radius:999px;color:var(--c-fog);transition:all .14s;cursor:pointer;font-family:inherit}
+.sheet-tabs button.active{background:var(--c-surface);color:var(--c-ink);box-shadow:0 1px 2px rgba(0,0,0,.07)}
+
+/* ── Field inputs ── */
+.field-input{
+  width:100%;height:44px;padding:0 16px;
+  background:var(--c-surface);border:1px solid var(--c-rule-card);border-radius:20px;
+  font-size:14px;color:var(--c-ink);outline:none;
+  transition:border-color .14s,box-shadow .14s;
+  font-family:inherit;
+}
+.field-input::placeholder{color:var(--c-mist)}
+.field-input:focus{border-color:var(--c-fog);box-shadow:0 0 0 3px rgba(17,13,16,.08)}
+.field-input.readonly{background:var(--c-bej-1);color:var(--c-mist);pointer-events:none}
+.field-wrap{position:relative;display:flex;align-items:center}
+.field-wrap .field-input{padding-right:44px}
+.field-wrap-suffix{position:absolute;right:16px;font-size:14px;color:var(--c-fog);pointer-events:none}
+.field-wrap-icon{position:absolute;right:14px;color:var(--c-fog);pointer-events:none}
+.field-textarea{width:100%;min-height:90px;padding:12px 16px;background:var(--c-surface);border:1px solid var(--c-rule-card);border-radius:14px;font-size:14px;color:var(--c-ink);resize:vertical;line-height:1.55;outline:none;transition:border-color .14s,box-shadow .14s;font-family:inherit}
+.field-textarea::placeholder{color:var(--c-mist)}
+.field-textarea:focus{border-color:var(--c-fog);box-shadow:0 0 0 3px rgba(17,13,16,.08)}
+.field-hint{font-size:12px;color:var(--c-fog);margin-top:4px;line-height:1.45;padding-left:16px}
+
+/* ── IBAN list ── */
+.iban-list{background:var(--c-surface);border:1px solid var(--c-rule-card);border-radius:10px;overflow:hidden;margin-bottom:8px}
+.iban-row{display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid var(--c-rule-soft);cursor:pointer;transition:background .12s}
+.iban-row:hover{background:var(--c-bej-1)}
+.iban-row:last-child{border-bottom:none}
+.iban-check{width:18px;height:18px;border-radius:5px;border:1.5px solid rgba(17,13,16,.18);background:var(--c-surface);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .12s}
+.iban-check.on{background:var(--c-pink);border-color:var(--c-pink)}
+.iban-num{font-size:12px;font-weight:500;font-variant-numeric:tabular-nums;margin-bottom:2px}
+.iban-bank{font-size:11px;color:var(--c-fog)}
+.iban-ccy-badge{
+  display:inline-flex;align-items:center;
+  padding:2px 7px;border-radius:var(--r-pill);
+  background:var(--c-bej-1);
+  font-size:10px;font-weight:700;letter-spacing:.06em;
+  color:var(--c-fog);flex-shrink:0;
+}
+/* Currency dropdown inside add-IBAN card */
+.iban-ccy-select{
+  height:46px;padding:0 10px;
+  border:1px solid var(--c-rule-card);border-radius:var(--r-pill);
+  background:var(--c-white);color:var(--c-ink);
+  font-family:inherit;font-size:13px;font-weight:600;
+  cursor:pointer;outline:none;flex-shrink:0;
+  appearance:none;-webkit-appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%237A7570' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 10px center;
+  padding-right:28px;
+}
+.iban-ccy-select:focus{border-color:var(--c-fog);box-shadow:0 0 0 3px rgba(17,13,16,.08)}
+.add-iban{} /* class kept for selector use only — styling via .btn.ghost */
+
+/* ── Confirm overlay ── */
+.confirm-overlay{position:fixed;inset:0;z-index:200;background:rgba(17,13,16,.45);display:none;align-items:flex-end}
+.confirm-overlay.open{display:flex}
+.confirm-box{width:100%;background:var(--c-bej-1);border-radius:24px 24px 0 0;padding:24px 20px calc(28px + env(safe-area-inset-bottom,0px));animation:slideUp .2s cubic-bezier(.2,.8,.2,1)}
+.confirm-icon{width:52px;height:52px;border-radius:16px;background:var(--c-warn-bg);color:var(--c-warn);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.confirm-title{font-size:18px;font-weight:700;letter-spacing:-.02em;margin-bottom:8px}
+.confirm-text{font-size:14px;color:var(--c-fog);line-height:1.6;margin-bottom:22px}
+.confirm-text strong{color:var(--c-ink)}
+
+/* ── Firma activă chip ── */
+.firma-chip{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:3px 10px;border-radius:var(--r-pill);
+  background:var(--c-bej-1);border:1px solid var(--c-rule);
+  font-size:11px;font-weight:600;color:var(--c-fog);
+  letter-spacing:.01em;white-space:nowrap;flex-shrink:0;
+}
+
+/* ── Filter tabs row ── */
+.filter-row{display:flex;gap:6px;padding:8px 0 4px;overflow-x:auto;scrollbar-width:none}
+.filter-row::-webkit-scrollbar{display:none}
+.filter-pill{
+  height:28px;padding:0 14px;border-radius:var(--r-pill);
+  background:transparent;border:1px solid var(--c-rule);
+  font-size:12px;font-weight:500;color:var(--c-fog);
+  cursor:pointer;white-space:nowrap;font-family:inherit;
+  transition:all .12s;flex-shrink:0;
+}
+.filter-pill:hover{background:var(--c-bej-1);color:var(--c-ink)}
+.filter-pill.active{background:var(--c-ink);color:#fff;border-color:var(--c-ink)}
+
+/* ── KPI row — Dublin reference (.da-kpis / .da-kpi) ── */
+.da-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:16px 0 4px}
+.da-kpi{background:var(--c-surface);border:1px solid var(--c-rule-card);border-radius:var(--r-xl);padding:18px 20px;position:relative;transition:transform 220ms cubic-bezier(.2,.8,.2,1)}
+.da-kpi:hover{transform:translateY(-1px)}
+.da-kpi .label{margin-bottom:12px}
+.da-kpi .label .dot{width:6px;height:6px;border-radius:50%}
+.da-kpi.income .label .dot{background:var(--c-pink)}
+.da-kpi.expense .label .dot{background:var(--c-ink)}
+.da-kpi.profit .label .dot{background:var(--c-success)}
+.da-kpi.due .label .dot{background:var(--c-warn)}
+.da-kpi .delta{margin-top:8px;display:inline-flex;align-items:center;gap:6px;font-variant-numeric:tabular-nums}
+.da-kpi .delta.up{color:var(--c-success)}
+.da-kpi .delta.down{color:var(--c-warn)}
+.da-kpi .delta.neutral{color:var(--c-fog)}
+
+/* Mobile: 3 compact separate cards */
+@media(max-width:767px){
+  .da-kpis{gap:8px}
+  .da-kpi{padding:12px 12px}
+  .da-kpi .label{margin-bottom:8px}
+  .da-kpi .delta{margin-top:6px}
+}
+
+/* ── Storno action on inv-item ── */
+.inv-item{position:relative}
+
+/* ── e-Factura blocker alert ── */
+.efactura-block{margin:12px 0 0}
+
+/* ── Qty/UM collapsed toggle ── */
+.qty-toggle{
+  display:inline-flex;align-items:center;gap:6px;
+  background:none;border:none;padding:4px 0;
+  font-size:12px;font-weight:500;color:var(--c-fog);
+  cursor:pointer;font-family:inherit;
+  transition:color .12s;
+}
+.qty-toggle:hover{color:var(--c-ink)}
+
+/* ── Line item screen ── */
+.line-screen{display:flex;flex-direction:column;align-items:center;padding:20px 16px 16px;width:100%}
+.line-screen .field-input{height:46px;border-radius:var(--r-pill)}
+.line-screen>.field,.line-screen>.line-row,.line-screen>.tva-toggle-row,.line-screen>.line-total-card{width:100%;max-width:440px}
+.desc-chips-row{display:flex;flex-wrap:wrap;gap:6px;padding:10px 0 0;padding-left:2px;align-items:center}
+/* Desc preset chips — use DS .btn.outline.sm but bump to 44px touch target */
+.desc-chip.btn.sm{height:44px;padding:0 16px;border-radius:var(--r-pill);font-size:13px;font-weight:500}
+.line-row{display:flex;gap:10px;align-items:flex-end;width:100%;max-width:440px}
+.um-tabs{display:flex;padding:3px;background:var(--c-rule);border-radius:var(--r-pill)}
+.um-tabs button{border:none;background:transparent;font-size:12px;font-weight:500;padding:6px 14px;border-radius:var(--r-pill);color:var(--c-fog);cursor:pointer;font-family:inherit;transition:all .12s}
+.um-tabs button.active{background:var(--c-surface);color:var(--c-ink);box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.line-total-card{background:var(--c-surface);border:1px solid var(--c-rule-card);border-radius:var(--r-lg);padding:14px 18px;margin-top:20px}
+.lt-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--c-rule-soft)}
+.lt-row:last-child{border-bottom:none;padding-top:10px;margin-top:4px}
+.lt-label{font-size:13px;color:var(--c-fog)}
+.lt-val{font-size:14px;font-weight:500;font-variant-numeric:tabular-nums}
+.lt-total .lt-label{font-size:14px;font-weight:600;color:var(--c-ink)}
+.lt-total .lt-val{font-size:18px;font-weight:700;letter-spacing:-.02em}
+
+.summary-right-panel{display:none} /* hidden until desktop */
+.desktop-only-cta{display:none}  /* hidden until desktop */
+/* amt-inline-cta CSS kept for safety but element removed from S3 */
+.amt-inline-cta{display:none}
+#amt-sym{display:none}
+/* Restore footer clearance for screens with fixed bottom-cta */
+#s-amount .sbody{padding-bottom:120px}
+#s-success .sbody{padding-bottom:120px}
+
+.rp-placeholder{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:48px 24px;text-align:center;
+  color:var(--c-fog);
+}
+.rp-placeholder .rp-icon{
+  width:52px;height:52px;border-radius:16px;
+  background:var(--c-bej-1);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:16px;color:var(--c-mist);
+}
+.rp-placeholder .rp-title{font-size:14px;font-weight:600;color:var(--c-ink);margin-bottom:6px}
+.rp-placeholder .rp-hint{font-size:13px;color:var(--c-fog);line-height:1.55}
+.rp-form{padding:24px}
+.rp-form-title{font-size:16px;font-weight:700;letter-spacing:-.02em;margin-bottom:20px;color:var(--c-ink)}
+.rp-actions{display:flex;gap:8px;margin-top:20px;padding-top:16px;border-top:1px solid var(--c-rule-soft)}
+.rp-actions .btn{flex:1}
+
+/* summary-left dim transition */
+.summary-left{transition:opacity .2s}
+.summary-left.is-dimmed{opacity:.45;pointer-events:none}
+
+/* ── Sidebar (hidden mobile) ── */
+.app-sidebar{display:none}
+
+/* ── Desktop header (replaces topbar at 1024+) ── */
+.dt-header{display:none}
+.dth-steps{display:flex;gap:5px;align-items:center}
+.dth-steps .sp{height:4px;border-radius:999px;background:var(--c-bej-1)}
+.dth-steps .sp.active{background:var(--c-pink);width:24px}
+.dth-steps .sp.done{background:var(--c-success);width:14px}
+.dth-steps .sp.upcoming{width:8px}
+
+/* ══════════════════════════════
+   TABLET 768+
+══════════════════════════════ */
+@media (min-width:768px) {
+  body{max-width:none}
+
+  .app-sidebar{
+    display:flex;flex-direction:column;align-items:center;
+    position:fixed;top:0;left:0;bottom:0;width:64px;
+    background:var(--c-bej-1);
+    border-right:1px solid var(--c-rule-soft);
+    padding:18px 0 22px;z-index:50;
+  }
+  .app-sidebar .s-logo{
+    width:32px;height:32px;border-radius:var(--r-sm);
+    background:var(--c-dark);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:22px;position:relative;
+    font-family:'Inter',sans-serif;font-weight:600;font-size:16px;
+  }
+  .app-sidebar .s-logo::after{
+    content:'';position:absolute;right:-3px;top:-3px;
+    width:8px;height:8px;border-radius:50%;
+    background:var(--c-pink);box-shadow:0 0 0 2px var(--c-bej-1);
+  }
+  .app-sidebar nav{display:flex;flex-direction:column;gap:4px;flex:1}
+  .app-sidebar nav a{
+    width:40px;height:40px;border-radius:var(--r-sm);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--c-fog);transition:background 140ms,color 140ms;
+    position:relative;
+  }
+  .app-sidebar nav a:hover{background:rgba(255,255,255,.6);color:var(--c-ink)}
+  .app-sidebar nav a.active{background:var(--c-pink-tint);color:var(--c-pink-deep)}
+  .app-sidebar .s-avatar{
+    width:36px;height:36px;border-radius:50%;
+    background:linear-gradient(135deg,#2D2926,#5A5450);
+    color:#fff;display:flex;align-items:center;justify-content:center;
+    font-family:'Inter',sans-serif;font-weight:500;font-size:12px;
+    border:2px solid var(--c-bej-1);
+    box-shadow:0 0 0 1px var(--c-rule);
+  }
+
+  /* Screens offset for sidebar */
+  .screen{padding-left:64px}
+
+  /* Topbar */
+  .topbar{padding:12px 32px}
+
+  /* sbody — let page scroll naturally, centered */
+  .sbody{overflow-y:visible;padding:0 32px 80px;max-width:720px;margin:0 auto;width:100%}
+
+  /* Bottom CTA — fixed, offset for sidebar */
+  .bottom-cta{
+    position:fixed;bottom:0;
+    left:64px;right:0;
+    transform:none;width:auto;max-width:none;
+    padding:12px 32px calc(16px + env(safe-area-inset-bottom,0px));
+    background:rgba(251,250,247,.97);
+    border-top:1px solid var(--c-rule-soft);
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  }
+
+  /* Hide sbody "Factură nouă" — handled by footer (mobile/tablet) and dt-header (desktop) */
+
+  /* Sheets → centered modals */
+  .sheet-bg{align-items:center;justify-content:center}
+  .sheet{
+    width:100%;max-width:480px;
+    border-radius:var(--r-xl);
+    max-height:85vh;
+    padding:28px 28px 28px;
+    box-shadow:0 24px 60px rgba(17,13,16,.18);
+    animation:modalIn .2s cubic-bezier(.2,.8,.2,1);
+  }
+  @keyframes modalIn{from{transform:translateY(12px) scale(.97);opacity:0}to{transform:none;opacity:1}}
+  .sheet-handle{display:none}
+
+  /* Confirm → modal */
+  .confirm-overlay{align-items:center;justify-content:center}
+  .confirm-box{
+    width:100%;max-width:420px;
+    border-radius:var(--r-xl);
+    padding:28px 28px 28px;
+    box-shadow:0 24px 60px rgba(17,13,16,.18);
+    animation:modalIn .2s cubic-bezier(.2,.8,.2,1);
+  }
+
+  /* Step indicator — spread wider */
+  .step-bar{padding:16px 0 4px}
+}
+
+/* ══════════════════════════════
+   DESKTOP 1024+
+══════════════════════════════ */
+@media (min-width:1024px) {
+  /* ── Topbar → dt-header ── */
+  .topbar{display:none}
+  .step-bar{display:none}
+  .dt-header{
+    display:flex;align-items:center;gap:10px;
+    padding:0 32px 0 20px;height:56px;
+    background:rgba(251,250,247,.96);
+    backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+    border-bottom:1px solid var(--c-rule-soft);
+    position:sticky;top:0;z-index:10;flex-shrink:0;
+  }
+  .dth-back{
+    width:32px;height:32px;border-radius:50%;
+    border:none;background:transparent;color:var(--c-fog);
+    cursor:pointer;display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;transition:background .12s,color .12s;padding:0;
+  }
+  .dth-back:hover{background:var(--c-bej-1);color:var(--c-ink)}
+  .dth-title{
+    font-size:15px;font-weight:700;letter-spacing:-.02em;color:var(--c-ink);
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:300px;
+    flex-shrink:0;
+  }
+  .dth-steps-wrap{flex:1;display:flex;justify-content:center}
+  .dth-actions{display:flex;align-items:center;gap:8px;margin-left:auto;flex-shrink:0}
+
+  /* ── Content sbody ── */
+  .sbody{padding:20px 40px 80px;max-width:680px}
+  #s-list .sbody{max-width:none}
+  #s-list .inv-list-wrap{max-width:860px;margin:0 auto}
+  #s-company .sbody{max-width:600px}
+  #s-amount .sbody{max-width:none}
+  .amount-screen{max-width:400px;margin:0 auto}
+  #s-success .sbody{max-width:640px}
+
+  /* ── S4 summary two-column ── */
+  #s-summary .sbody{max-width:1100px;padding:20px 40px 60px}
+  .summary-2col{display:grid;grid-template-columns:1fr 356px;gap:24px;align-items:start}
+  .summary-2col.panel-open{grid-template-columns:1fr 1fr}
+  .summary-right-panel{
+    display:block;position:sticky;top:68px;
+    background:var(--c-white);border:1px solid var(--c-rule-card);
+    border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-sm);min-height:200px;
+  }
+
+  /* ── CTAs: mobile versions hidden, header takes over ── */
+  #s-summary .bottom-cta{display:none}
+  .desktop-only-cta{display:none}  /* now in header */
+  .amt-inline-cta{display:none}     /* now in header */
+  .mobile-only-cta{display:none}    /* S5 back button inline */
+  .s1-new-btn{display:none}         /* unused, kept for safety */
+  /* Bottom footers hidden at desktop (dt-header has the actions) */
+  #s1-cta{display:none}
+  #s3-cta{display:none}
+  #s5-cta{display:none}
+  /* Share row visible on all viewports */
+
+  /* ── Invoice list richer rows ── */
+  .inv-item{padding:14px 0}
+}
+</style>
+</head>
+<body class="has-grid">
+
+<!-- ════════════════════════════════════════
+     SIDEBAR (visible at 768+)
+════════════════════════════════════════ -->
+<aside class="app-sidebar" id="app-sidebar" aria-label="Navigare principală">
+  <div class="s-logo">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+      <circle cx="8" cy="8" r="5.5"/>
+      <path d="M8 2.5v11M2.5 8h11"/>
+    </svg>
+  </div>
+  <nav>
+    <!-- Declarații -->
+    <a href="#" title="Declarații">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="2" width="12" height="14" rx="2"/><path d="M6 6h6M6 9h6M6 12h4"/></svg>
+    </a>
+    <!-- Robotei -->
+    <a href="#" title="Robotei">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="4" y="7" width="10" height="8" rx="2"/><path d="M9 2v5M6 7V5a3 3 0 016 0v2"/><circle cx="6.5" cy="11.5" r="1"/><circle cx="11.5" cy="11.5" r="1"/></svg>
+    </a>
+    <!-- Facturi (active) -->
+    <a href="#" class="active" title="Facturi">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="2" width="12" height="14" rx="2"/><path d="M6.5 6.5h5M6.5 9h5M6.5 11.5h3"/><path d="M6.5 14l1-1.5 1 1 1.5-2.5"/></svg>
+    </a>
+    <!-- Clienți -->
+    <a href="#" title="Clienți">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="9" cy="6" r="3"/><path d="M3 16c0-3.314 2.686-6 6-6s6 2.686 6 6"/></svg>
+    </a>
+    <!-- Setări -->
+    <a href="#" title="Setări" style="margin-top:auto">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="9" cy="9" r="2.5"/><path d="M9 1.5v2M9 14.5v2M1.5 9h2M14.5 9h2M3.6 3.6l1.4 1.4M13 13l1.4 1.4M3.6 14.4l1.4-1.4M13 5l1.4-1.4"/></svg>
+    </a>
+  </nav>
+  <div class="s-avatar" title="Paul de la BONO">PB</div>
+</aside>
+
+<!-- ════════════════════════════════════════
+     S1 · Lista facturilor
+════════════════════════════════════════ -->
+<div class="screen active" id="s-list">
+  <!-- Desktop header -->
+  <div class="dt-header">
+    <div class="dth-title">Facturi emise</div>
+    <div class="firma-chip" style="margin-left:12px">
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="1" y="3" width="8" height="6" rx="1"/><path d="M3 3V2a2 2 0 014 0v1"/></svg>
+      Bono Fintech · RO1238808
+    </div>
+    <div class="dth-actions">
+      <button class="btn primary" onclick="goTo('s-company')">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6.5 1v11M1 6.5h11"/></svg>
+        Factură nouă
+      </button>
+    </div>
+  </div>
+  <!-- Mobile topbar -->
+  <div class="topbar">
+    <div style="flex:1">
+      <div class="tb-title">Facturi emise</div>
+    </div>
+    <div class="firma-chip">
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="1" y="3" width="8" height="6" rx="1"/><path d="M3 3V2a2 2 0 014 0v1"/></svg>
+      Bono Fintech
+    </div>
+    <button class="btn outline icon-only btn-sm" onclick="return false" title="Filtre" style="height:36px;width:36px;margin-left:4px">
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M1.5 3.5h12M4 7.5h7M6 11.5h3"/></svg>
+    </button>
+  </div>
+  <div class="sbody" id="s-list-body">
+    <div id="s-list-inner" class="inv-list-wrap">
+
+      <!-- KPI Dashboard row -->
+      <div class="da-kpis">
+        <div class="da-kpi income">
+          <div class="label t-eyebrow"><span class="dot"></span>De încasat</div>
+          <div class="tn28">107.580<span class="t-suffix-lg"> lei</span></div>
+          <div class="delta neutral t14">6 facturi</div>
+        </div>
+        <div class="da-kpi due">
+          <div class="label t-eyebrow"><span class="dot"></span>Restante</div>
+          <div class="tn28" style="color:var(--c-warn)">71.180<span class="t-suffix-lg"> lei</span></div>
+          <div class="delta down t14">7 zile</div>
+        </div>
+        <div class="da-kpi profit">
+          <div class="label t-eyebrow"><span class="dot"></span>Încasate</div>
+          <div class="tn28">155.300<span class="t-suffix-lg"> eur</span></div>
+          <div class="delta up t14">↑ luna aceasta</div>
+        </div>
+      </div>
+
+      <!-- e-Factura connection blocker (toggleable demo) -->
+      <div class="efactura-block" id="efactura-alert">
+        <div class="alert warn">
+          <svg class="ic" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M8 2L1.5 13h13L8 2z"/><path d="M8 6.5v3M8 11h.01"/></svg>
+          <div>
+            <strong>Facturare pentru clienți din România dezactivată.</strong>
+            Echipa BONO lucrează la conexiunea firmei tale la e-Factura.
+            Termen estimat: <strong>3 zile</strong>. Poți emite în continuare facturi pentru clienți externi.
+            <div style="margin-top:8px">
+              <button class="btn sm outline" onclick="document.getElementById('efactura-alert').style.display='none'">Am înțeles</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search + filters -->
+      <div style="margin-bottom:4px">
+        <div class="search-wrap" style="margin:12px 0 0">
+          <svg class="search-ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="7" cy="7" r="5"/><path d="M11 11l3 3"/></svg>
+          <input type="text" placeholder="Caută factură…" oninput="filterInvoices(this.value)">
+        </div>
+      </div>
+      <div class="filter-row">
+        <button class="filter-pill active" onclick="setFilter(this,'toate')">Toate</button>
+        <button class="filter-pill" onclick="setFilter(this,'emise')">Emise</button>
+        <button class="filter-pill" onclick="setFilter(this,'neincasate')">Neîncasate</button>
+        <button class="filter-pill" onclick="setFilter(this,'restante')">Restante</button>
+        <button class="filter-pill" onclick="setFilter(this,'stornate')">Stornate</button>
+      </div>
+
+      <div class="inv-list" id="invoice-list">
+        <div class="inv-item" data-status="emisa"><div class="inv-icon">VT</div><div class="inv-info"><div class="inv-name">VLM PROFESSIONAL TRANS SRL</div><div class="inv-cui">33236854 · DF-8-BONO-4329/26</div></div><div class="inv-right"><span class="inv-date">20 Feb</span><span class="inv-amount">9.300<span class="num-dec">,00</span> Lei</span></div></div>
+        <div class="inv-item" data-status="neincasata"><div class="inv-icon">T5</div><div class="inv-info"><div class="inv-name">TASTE 5 SRL</div><div class="inv-cui">RO1234568 · DF-8-BONO-4330/26</div></div><div class="inv-right"><span class="inv-date">18 Feb</span><span class="inv-amount">9.300<span class="num-dec">,00</span> EUR</span><span class="badge warn" style="margin-top:2px">Neîncasată</span></div></div>
+        <div class="inv-item" data-status="incasata"><div class="inv-icon">FI</div><div class="inv-info"><div class="inv-name">FLAVOR INC</div><div class="inv-cui">RO1234569 · DF-8-BONO-4331/26</div></div><div class="inv-right"><span class="inv-date">15 Feb</span><span class="inv-amount">155.300<span class="num-dec">,00</span> EUR</span><span class="badge success" style="margin-top:2px">Încasată</span></div></div>
+        <div class="inv-item" data-status="emisa"><div class="inv-icon">DC</div><div class="inv-info"><div class="inv-name">DELICIOUS CO SRL</div><div class="inv-cui">RO1234570 · DF-8-BONO-4332/26</div></div><div class="inv-right"><span class="inv-date">10 Feb</span><span class="inv-amount">7.200<span class="num-dec">,00</span> Lei</span></div></div>
+        <div class="inv-item" data-status="restanta"><div class="inv-icon">SA</div><div class="inv-info"><div class="inv-name">SAVOR AND PARTNERS IMPEX SRL</div><div class="inv-cui">RO1234571 · DF-8-BONO-4333/26</div></div><div class="inv-right"><span class="inv-date">5 Feb</span><span class="inv-amount">71.180<span class="num-dec">,50</span> Lei</span><span class="badge error" style="margin-top:2px">Restantă · 7 zile</span></div></div>
+        <div class="inv-item" data-status="stornata"><div class="inv-icon">GL</div><div class="inv-info"><div class="inv-name">GOURMET LTD</div><div class="inv-cui">RO1234572 · DF-8-BONO-4334/26</div></div><div class="inv-right"><span class="inv-date">1 Feb</span><span class="inv-amount">15.700<span class="num-dec">,00</span> Lei</span><span class="badge neutral" style="margin-top:2px">Stornată</span></div></div>
+      </div>
+    </div>
+  </div>
+  <!-- mobile CTA only -->
+  <div class="bottom-cta" id="s1-cta">
+    <button class="btn-primary" onclick="goTo('s-company')">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M8 2v12M2 8h12"/></svg>
+      Factură nouă
+    </button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     S2 · Client (Step 1)
+════════════════════════════════════════ -->
+<div class="screen" id="s-company">
+  <!-- Desktop header -->
+  <div class="dt-header">
+    <button class="dth-back" onclick="goTo('s-list')">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M10 4l-5 4 5 4"/></svg>
+    </button>
+    <div class="dth-title">Factură nouă</div>
+    <div class="dth-steps-wrap">
+      <div class="dth-steps"><div class="sp active"></div><div class="sp upcoming"></div><div class="sp upcoming"></div></div>
+    </div>
+    <div class="dth-actions"></div>
+  </div>
+  <!-- Mobile topbar -->
+  <div class="topbar">
+    <button class="btn outline icon-only" style="height:36px;width:36px" onclick="goTo('s-list')">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M10 4l-5 4 5 4"/></svg>
+    </button>
+    <div style="flex:1"><div class="tb-title">Către cine emiți factura?</div></div>
+    <button class="close-btn" onclick="goTo('s-list')">Închide</button>
+  </div>
+  <div class="step-bar"><div class="step-pill active"></div><div class="step-pill upcoming"></div><div class="step-pill upcoming"></div></div>
+  <div class="sbody">
+    <div class="search-wrap">
+      <svg class="search-ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="7" cy="7" r="5"/><path d="M11 11l3 3"/></svg>
+      <input type="text" placeholder="Caută după numele firmei sau CUI" oninput="filterCompanies(this.value)">
+    </div>
+    <button class="btn ghost" style="width:100%;justify-content:flex-start;gap:8px;padding:0;height:36px;font-size:14px;margin-bottom:4px" onclick="openSheet('sheet-foreign')">
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M7.5 2v11M2 7.5h11"/></svg>
+      Client nou (persoană fizică / firmă din afara României)
+    </button>
+    <div class="eyebrow" id="lbl-recent"><span class="dot"></span>Clienții tăi</div>
+    <div id="co-recent">
+      <div class="co-item" onclick="selectCo('DAMART DESIGN CONSTRUCT SRL','RO3210987','DD')"><div class="co-avatar">DD</div><div class="co-info"><div class="co-name">DAMART DESIGN CONSTRUCT SRL</div><div class="co-sub">RO3210987 · 20 facturi emise</div></div><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".3"><path d="M5 3l4 4-4 4"/></svg></div>
+      <div class="co-item" onclick="selectCo('ECOFLEX GROUP SRL','RO3210988','EG')"><div class="co-avatar">EG</div><div class="co-info"><div class="co-name">ECOFLEX GROUP SRL</div><div class="co-sub">RO3210988 · 20 facturi emise</div></div><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".3"><path d="M5 3l4 4-4 4"/></svg></div>
+      <div class="co-item" onclick="selectCoForeign('Microsoft Inc','US-MSCFT','MS')"><div class="co-avatar" style="background:#D6E8F5;color:#2A5F8F">MS</div><div class="co-info"><div class="co-name">Microsoft Inc</div><div class="co-sub" style="display:flex;align-items:center;gap:5px">US-MSCFT <span style="font-size:10px;font-weight:600;letter-spacing:.06em;background:var(--c-bej-1);color:var(--c-fog);padding:1px 6px;border-radius:999px">EXTERN</span></div></div><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".3"><path d="M5 3l4 4-4 4"/></svg></div>
+    </div>
+    <div class="eyebrow" id="lbl-other"><span class="dot"></span>Alte companii din România</div>
+    <div id="co-other">
+      <div class="co-item" onclick="selectCo('GOURMET BISTRO &amp; SPORT CLUB SRL','RO3210987','GB')"><div class="co-avatar">GB</div><div class="co-info"><div class="co-name">GOURMET BISTRO &amp; SPORT CLUB</div><div class="co-sub">RO3210987</div></div><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".3"><path d="M5 3l4 4-4 4"/></svg></div>
+      <div class="co-item" onclick="selectCo('SPORT BAKERY &amp; CAFE SRL','RO3210988','SB')"><div class="co-avatar">SB</div><div class="co-info"><div class="co-name">SPORT BAKERY &amp; CAFE</div><div class="co-sub">RO3210988</div></div><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".3"><path d="M5 3l4 4-4 4"/></svg></div>
+      <div class="co-item" onclick="selectCo('CLASSIC CANTINA SRL','RO3210989','CC')"><div class="co-avatar">CC</div><div class="co-info"><div class="co-name">CLASSIC CANTINA SRL</div><div class="co-sub">RO3210989</div></div><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".3"><path d="M5 3l4 4-4 4"/></svg></div>
+      <div class="co-item" onclick="selectCo('PIZZA SPORT\'S BAR &amp; GRILL SRL','RO3210990','PS')"><div class="co-avatar">PS</div><div class="co-info"><div class="co-name">PIZZA SPORT'S BAR &amp; GRILL</div><div class="co-sub">RO3210990</div></div><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".3"><path d="M5 3l4 4-4 4"/></svg></div>
+      <div class="co-item" onclick="selectCo('FRESH BITE DELI AND SPORTS DRINKS SRL','RO3210991','FB')"><div class="co-avatar">FB</div><div class="co-info"><div class="co-name">FRESH BITE DELI AND SPORTS DRINKS</div><div class="co-sub">RO3210991</div></div><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".3"><path d="M5 3l4 4-4 4"/></svg></div>
+      <div class="co-item" onclick="selectCo('MARIAN IONESCU PFA','RO23857791','MI')"><div class="co-avatar">MI</div><div class="co-info"><div class="co-name">MARIAN IONESCU PFA</div><div class="co-sub">RO23857791</div></div><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".3"><path d="M5 3l4 4-4 4"/></svg></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     S3 · Sumă (Step 2)
+════════════════════════════════════════ -->
+<div class="screen" id="s-amount">
+  <!-- Desktop header -->
+  <div class="dt-header">
+    <button class="dth-back" onclick="goTo('s-company')">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M10 4l-5 4 5 4"/></svg>
+    </button>
+    <div class="dth-title" id="dth-amt-co">–</div>
+    <div class="dth-steps-wrap">
+      <div class="dth-steps"><div class="sp done"></div><div class="sp active"></div><div class="sp upcoming"></div></div>
+    </div>
+    <div class="dth-actions">
+      <button class="btn ghost" onclick="goTo('s-list')">Renunță</button>
+      <button class="btn primary amt-continue-btn" disabled onclick="goToSummary()">Continuă →</button>
+    </div>
+  </div>
+  <!-- Mobile topbar -->
+  <div class="topbar">
+    <button class="btn outline icon-only" style="height:36px;width:36px" onclick="goTo('s-company')">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M10 4l-5 4 5 4"/></svg>
+    </button>
+    <div style="flex:1"><div class="tb-title" id="amt-co-name">–</div><div class="tb-sub" id="amt-co-cui">–</div></div>
+    <button class="close-btn" onclick="goTo('s-list')">Închide</button>
+  </div>
+  <div class="step-bar"><div class="step-pill done"></div><div class="step-pill active"></div><div class="step-pill upcoming"></div></div>
+  <div class="sbody" style="overflow-y:visible">
+    <div class="line-screen">
+
+      <!-- Currency -->
+      <div class="ccy-tabs" id="ccy-tabs" style="margin-bottom:28px">
+        <button class="active" onclick="setCcy(this,'Lei','')">Lei</button>
+        <button onclick="setCcy(this,'EUR','')">EUR</button>
+        <button onclick="setCcy(this,'USD','')">USD</button>
+        <button onclick="setCcy(this,'GBP','')">GBP</button>
+      </div>
+
+      <!-- Big amount input -->
+      <div class="amount-display-row">
+        <div class="amount-display-inner">
+          <input class="amount-input" id="line-price" inputmode="decimal" placeholder="0"
+                 autocomplete="off" oninput="onLineChange()">
+          <span class="amount-ccy" id="amt-ccy-lbl">Lei</span>
+        </div>
+      </div>
+      <div class="amount-hint" id="amt-hint">Introdu suma fără TVA</div>
+
+      <!-- TVA toggle -->
+      <div class="tva-toggle-row" onclick="toggleTva()" style="margin-bottom:20px">
+        <button class="switch" id="tva-sw"></button>
+        <span class="label">Include TVA (19%)</span>
+      </div>
+
+      <!-- Description -->
+      <div class="field" style="width:100%;max-width:440px;margin-bottom:8px">
+        <div class="field-label">Descriere</div>
+        <input class="field-input" type="text" id="line-desc"
+               placeholder="ex: Servicii consultanță ianuarie 2026"
+               oninput="onLineChange()">
+        <div class="desc-chips-row" id="desc-chips">
+          <button class="btn outline sm desc-chip" onclick="setDesc('Servicii conform contract')">Servicii conform contract</button>
+          <button class="btn outline sm desc-chip" onclick="setDesc('Servicii consultanță')">Consultanță</button>
+          <button class="btn outline sm desc-chip" onclick="setDesc('Servicii dezvoltare software')">Software</button>
+          <button class="btn outline sm desc-chip" onclick="setDesc('Consultanță management')">Management</button>
+          <button class="btn outline icon-only desc-chip-add" onclick="openSheet('sheet-new-template')" title="Adaugă șablon nou" style="width:44px;height:44px;border-radius:var(--r-pill);flex-shrink:0">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 1v12M1 7h12"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Qty + UM — collapsed by default -->
+      <div style="width:100%;max-width:440px;margin-bottom:16px">
+        <button class="qty-toggle" id="qty-toggle-btn" onclick="toggleQtyPanel()">
+          <span id="qty-summary">1 buc.</span>
+          <svg id="qty-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="transition:transform .2s"><path d="M3 4.5l3 3 3-3"/></svg>
+        </button>
+        <div class="qty-panel" id="qty-panel" style="display:none">
+          <div class="line-row" style="margin-top:10px">
+            <div class="field" style="flex:0 0 90px">
+              <div class="field-label">Cant.</div>
+              <input class="field-input" type="number" id="line-qty" value="1" min="0.01"
+                     step="any" oninput="onLineChange()" style="text-align:center">
+            </div>
+            <div class="field" style="flex:0 0 140px">
+              <div class="field-label">U.M.</div>
+              <div class="um-tabs" id="um-tabs">
+                <button class="active" onclick="setUM(this,'buc')">buc.</button>
+                <button onclick="setUM(this,'ore')">ore</button>
+                <button onclick="setUM(this,'km')">km</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Total card -->
+      <div class="line-total-card" id="line-total-card" style="display:none;width:100%;max-width:440px">
+        <div class="lt-row">
+          <span class="lt-label">Subtotal</span>
+          <span class="lt-val" id="lt-sub">—</span>
+        </div>
+        <div class="lt-row" id="lt-tva-row" style="display:none">
+          <span class="lt-label">TVA 19%</span>
+          <span class="lt-val" id="lt-tva">—</span>
+        </div>
+        <div class="lt-row lt-total">
+          <span class="lt-label">Total factură</span>
+          <span class="lt-val" id="lt-total">—</span>
+        </div>
+      </div>
+
+    </div><!-- /line-screen -->
+  </div><!-- /sbody -->
+  <!-- Mobile + tablet fixed footer -->
+  <div class="bottom-cta" id="s3-cta">
+    <button class="btn-primary amt-continue-btn" onclick="goToSummary()" disabled>Continuă →</button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     S4 · Sumar factură (Step 3)
+════════════════════════════════════════ -->
+<div class="screen" id="s-summary">
+  <!-- Desktop header -->
+  <div class="dt-header">
+    <button class="dth-back" onclick="goTo('s-amount')">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M10 4l-5 4 5 4"/></svg>
+    </button>
+    <div class="dth-title" id="dth-sum-title">Sumar factură</div>
+    <div class="dth-steps-wrap">
+      <div class="dth-steps"><div class="sp done"></div><div class="sp done"></div><div class="sp active"></div></div>
+    </div>
+    <div class="dth-actions">
+      <button class="btn ghost" onclick="goTo('s-list')">Renunță</button>
+      <button class="btn primary emit-trigger" onclick="emiteFactura()">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M2 7L5.5 10.5L12 4"/></svg>
+        Emite factura
+      </button>
+    </div>
+  </div>
+  <!-- Mobile topbar -->
+  <div class="topbar">
+    <button class="btn outline icon-only" style="height:36px;width:36px" onclick="goTo('s-amount')">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M10 4l-5 4 5 4"/></svg>
+    </button>
+    <div style="flex:1"><div class="tb-title">Sumar factură</div><div class="tb-sub" id="sum-sub">–</div></div>
+    <button class="close-btn" onclick="goTo('s-list')">Închide</button>
+  </div>
+  <div class="step-bar"><div class="step-pill done"></div><div class="step-pill done"></div><div class="step-pill active"></div></div>
+  <div class="sbody">
+    <!-- Two-column wrapper (becomes grid at 1024+) -->
+    <div class="summary-2col">
+      <!-- LEFT — summary cards -->
+      <div class="summary-left" id="summary-left">
+        <div style="padding:12px 0 14px;font-size:14px;color:var(--c-fog);line-height:1.55">
+          Revizuiește detaliile. Apasă pe orice câmp pentru a-l modifica.
+        </div>
+        <div class="summary-cards-wrap">
+        <!-- Client -->
+        <div class="detail-card">
+          <div class="card-header"><span class="card-label"><span class="dot"></span>Client</span><button class="card-action" onclick="goTo('s-company')">Schimbă</button></div>
+          <div class="detail-row tappable" onclick="goTo('s-company')"><span class="detail-label">Denumire</span><span class="detail-value" id="sum-co">–</span></div>
+          <div class="detail-row tappable" onclick="goTo('s-company')"><span class="detail-label">CUI</span><span class="detail-value" id="sum-cui">–</span></div>
+        </div>
+        <!-- Date factură -->
+        <div class="detail-card">
+          <div class="card-header"><span class="card-label"><span class="dot"></span>Date factură</span><button class="card-action" onclick="openSheet('sheet-date')">Modifică</button></div>
+          <div class="detail-row tappable" onclick="openSheet('sheet-date')"><span class="detail-label">Data emiterii</span><span class="detail-value" id="sum-emitere">07 mai 2026</span></div>
+          <div class="detail-row tappable" onclick="openSheet('sheet-date')"><span class="detail-label" id="sum-scadenta-label">Scadență (30 zile)</span><span class="detail-value" id="sum-scadenta">06 iun 2026</span></div>
+          <div class="detail-row"><span class="detail-label">Nr. factură</span><span class="detail-value" style="font-size:12px;letter-spacing:.01em">DF-8-BONO-4334/26</span></div>
+        </div>
+        <!-- Financiar -->
+        <div class="detail-card">
+          <div class="card-header"><span class="card-label"><span class="dot"></span>Financiar</span><button class="card-action" onclick="openSheet('sheet-iban')">Modifică IBAN-uri</button></div>
+          <div class="detail-row tappable" onclick="goTo('s-amount')">
+            <span class="detail-label">Sumă facturată</span>
+            <div style="text-align:right">
+              <div style="display:flex;align-items:baseline;justify-content:flex-end;gap:5px;white-space:nowrap">
+                <span class="detail-value large" id="sum-amt">–</span>
+                <span class="detail-value" id="sum-ccy" style="font-size:12px;font-weight:500;color:var(--c-fog)">Lei</span>
+              </div>
+            </div>
+          </div>
+          <div id="sum-iban-rows">
+            <!-- rendered dynamically by updateIbanDisplay() -->
+          </div>
+        </div>
+        <!-- Conținut -->
+        <div class="detail-card">
+          <div class="card-header"><span class="card-label"><span class="dot"></span>Conținut factură</span><button class="card-action" onclick="openSheet('sheet-content')">Modifică</button></div>
+          <div class="detail-row tappable" onclick="openSheet('sheet-content')"><span class="detail-label">Descriere</span><span class="detail-value" id="sum-desc">Servicii conform contract</span></div>
+          <div class="detail-row tappable" onclick="openSheet('sheet-content')"><span class="detail-label">Mențiuni</span><span class="detail-value muted" id="sum-ment">Factura circulă fara alte detalii</span></div>
+        </div>
+        </div><!-- /summary-cards-wrap -->
+        <!-- Desktop-only CTA (hidden on mobile/tablet via CSS) -->
+        <div class="desktop-only-cta">
+          <button class="btn primary lg full emit-trigger" id="emit-btn-desktop" onclick="emiteFactura()">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 8L6.5 11.5L13 4.5"/></svg>
+            Emite factura
+          </button>
+          <button class="btn outline lg full" style="margin-top:8px" onclick="goTo('s-list')">Renunță</button>
+        </div>
+      </div>
+
+      <!-- RIGHT — edit panel (desktop only, shown via CSS at 1024+) -->
+      <div class="summary-right-panel" id="summary-right-panel">
+        <div class="rp-placeholder" id="rp-placeholder">
+          <div class="rp-icon">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M15.5 3.5a2.12 2.12 0 013 3L7 18H4v-3L15.5 3.5z"/></svg>
+          </div>
+          <div class="rp-title">Nimic de editat</div>
+          <div class="rp-hint">Apasă pe „Modifică" sau pe orice câmp din sumar pentru a-l edita direct aici.</div>
+        </div>
+        <div class="rp-form" id="rp-form" style="display:none">
+          <!-- dynamic content injected via JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Mobile/tablet CTA (hidden at 1024+ via CSS) -->
+  <div class="bottom-cta">
+    <button class="btn-primary emit-trigger" id="emit-btn" onclick="emiteFactura()">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 8L6.5 11.5L13 4.5"/></svg>
+      Emite factura
+    </button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     S5 · Factură emisă cu succes
+════════════════════════════════════════ -->
+<div class="screen" id="s-success">
+  <!-- Desktop header -->
+  <div class="dt-header">
+    <div class="dth-title" id="dth-suc-title">Factură emisă</div>
+    <div class="dth-actions">
+      <button class="btn outline" onclick="goTo('s-list')">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M9 2L4 7l5 5"/></svg>
+        Înapoi la facturi
+      </button>
+    </div>
+  </div>
+  <!-- Mobile topbar -->
+  <div class="topbar">
+    <div style="flex:1"><div class="tb-title">Detalii factură</div></div>
+  </div>
+  <div class="sbody">
+    <!-- Compact success banner -->
+    <div style="
+      display:flex;align-items:center;gap:14px;
+      background:var(--c-success-bg);
+      border:1px solid rgba(31,122,77,.15);
+      border-radius:var(--r-lg);
+      padding:14px 18px;
+      margin:16px 0 12px;
+    ">
+      <div style="
+        width:36px;height:36px;border-radius:50%;
+        background:var(--c-success);color:#fff;
+        display:flex;align-items:center;justify-content:center;
+        flex-shrink:0;
+      ">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 9L7.5 13L14.5 5"/></svg>
+      </div>
+      <div>
+        <div style="font-size:15px;font-weight:700;letter-spacing:-.02em;color:var(--c-success)">Factura a fost emisă</div>
+        <div style="font-size:13px;color:var(--c-success);opacity:.75;margin-top:1px">DF-8-BONO-4334/26</div>
+      </div>
+    </div>
+
+    <!-- Invoice card with all actions -->
+    <div class="inv-card-success">
+
+      <!-- Top: content left + more button right -->
+      <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:14px">
+        <div style="flex:1;min-width:0">
+          <div class="tag" style="margin-bottom:4px">Factură emisă</div>
+          <div class="number">DF-8-BONO-4334/26</div>
+          <div class="company" id="suc-co">–</div>
+          <div class="amount-big"><span id="suc-amt">–</span><span class="ccy" id="suc-ccy"> Lei</span></div>
+          <div class="due">Scadentă: 06 iun 2026</div>
+        </div>
+        <div style="position:relative;flex-shrink:0">
+          <button class="btn secondary icon-only" id="suc-more-btn" onclick="toggleMoreMenu()" style="width:36px;height:36px">
+            <svg width="16" height="4" viewBox="0 0 16 4" fill="currentColor"><circle cx="2" cy="2" r="1.5"/><circle cx="8" cy="2" r="1.5"/><circle cx="14" cy="2" r="1.5"/></svg>
+          </button>
+          <div id="suc-more-menu" style="display:none;position:absolute;right:0;top:44px;background:var(--c-bej-1);border:1px solid var(--c-rule-card);border-radius:var(--r-md);box-shadow:0 8px 24px rgba(17,13,16,.12);overflow:hidden;z-index:20;display:none">
+            <div style="display:flex;align-items:stretch">
+              <button onclick="goTo('s-summary');toggleMoreMenu()" style="display:flex;align-items:center;gap:8px;padding:13px 18px;background:none;border:none;border-right:1px solid var(--c-rule-soft);font-size:14px;font-weight:500;color:var(--c-ink);cursor:pointer;font-family:inherit;white-space:nowrap" onmouseover="this.style.background='rgba(17,13,16,.04)'" onmouseout="this.style.background='none'">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M1.5 9.5l5-5M9.5 1.5l2 2-7 7-2.5.5.5-2.5z"/></svg>
+                Modifică factura
+              </button>
+              <button onclick="toggleMoreMenu()" style="display:flex;align-items:center;gap:8px;padding:13px 18px;background:none;border:none;font-size:14px;font-weight:500;color:var(--c-error);cursor:pointer;font-family:inherit;white-space:nowrap" onmouseover="this.style.background='rgba(17,13,16,.04)'" onmouseout="this.style.background='none'">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2.5 2.5l9 9M11.5 2.5l-9 9"/></svg>
+                Anulează factura
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Share row — full width, outside the flex -->
+      <div class="share-row" style="padding-top:14px;border-top:1px solid var(--c-rule-soft)">
+        <button class="btn outline-pink" style="flex:1">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M1.5 3.5h11l-5.5 5-5.5-5z"/><path d="M1.5 3.5v7h11v-7"/></svg>
+          Email
+        </button>
+        <button class="btn outline-pink" style="flex:1">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M7 1.5a5.5 5.5 0 015.5 5.5 5.5 5.5 0 01-5.5 5.5 5.45 5.45 0 01-2.9-.83L1.5 12.5l1.33-2.6A5.45 5.45 0 011.5 7 5.5 5.5 0 017 1.5z"/></svg>
+          WhatsApp
+        </button>
+        <button class="btn outline-pink" style="flex:1" onclick="openInvoicePDF()">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 11.5h10M7 1.5v7M4.5 6l2.5 3 2.5-3"/></svg>
+          PDF
+        </button>
+      </div>
+
+    </div>
+
+    <!-- ANAF card — only countdown + send now, no modify -->
+    <div class="anaf-card">
+      <div class="anaf-top">
+        <div class="anaf-timer-row"><span class="anaf-label" id="anaf-lbl">Se trimite la ANAF în</span><span class="anaf-timer" id="anaf-timer">10:00</span></div>
+        <div style="font-size:13px;color:var(--c-fog)">eFactura · sincronizare programată automat</div>
+      </div>
+      <div class="anaf-body" style="display:flex;align-items:center;justify-content:space-between;gap:16px">
+        <div class="anaf-info" style="flex:1"><strong style="color:var(--c-ink)">După trimitere, factura nu mai poate fi modificată.</strong></div>
+        <div style="flex-shrink:0">
+          <button class="btn outline-pink" onclick="openConfirm()">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 7l4 4 6-6"/></svg>
+            Trimite acum
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="eyebrow"><span class="dot"></span>Detalii</div>
+    <div class="info-card">
+      <div class="info-row"><span class="info-label">Nr. factură</span><span class="info-value">DF-8-BONO-4334/26</span></div>
+      <div class="info-row"><span class="info-label">Client</span><span class="info-value" id="suc-info-co">–</span></div>
+      <div class="info-row"><span class="info-label">Sumă facturată</span><span class="info-value" id="suc-info-amt">–</span></div>
+      <div class="info-row"><span class="info-label">Scadență</span><span class="info-value">06 iun 2026</span></div>
+      <div class="info-row" id="anaf-status-row"><span class="info-label">Status ANAF</span><span class="info-value"><span id="anaf-badge" class="badge warn">În așteptare</span></span></div>
+    </div>
+    <div class="mobile-only-cta" style="padding:16px 0 8px"><!-- spacer for footer --></div>
+  </div>
+  <!-- Mobile + tablet fixed footer -->
+  <div class="bottom-cta" id="s5-cta">
+    <button class="btn-primary btn-tonal" onclick="goTo('s-list')">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M9 2L4 7l5 5"/></svg>
+      Înapoi la facturi
+    </button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     SHEETS (mobile bottom / tablet–desktop modal)
+════════════════════════════════════════ -->
+
+<!-- Sheet: Client nou -->
+<div class="sheet-bg" id="sheet-foreign" onclick="if(event.target===this)closeSheet('sheet-foreign')">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-modal-header">
+      <div class="sheet-title">Client nou</div>
+      <button class="sheet-close-x" onclick="closeSheet('sheet-foreign')">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 2l10 10M12 2L2 12"/></svg>
+      </button>
+    </div>
+    <div class="sheet-sub">Adaugă datele clientului tău.</div>
+    <div class="sheet-tabs">
+      <button class="active" id="tab-pf-btn" onclick="switchTab('pf')">Persoană fizică</button>
+      <button id="tab-firma-btn" onclick="switchTab('firma')">Firmă străină</button>
+    </div>
+    <div id="tab-pf">
+      <div class="field"><div class="field-label">Prenume</div><input class="field-input" type="text" placeholder="Marian" id="pf-p"></div>
+      <div class="field" style="margin-top:10px"><div class="field-label">Nume</div><input class="field-input" type="text" placeholder="Davidescu" id="pf-n"></div>
+      <div class="field" style="margin-top:10px">
+        <div class="field-label">CNP <span style="font-size:10px;color:var(--c-mist);font-weight:400;letter-spacing:0;text-transform:none">(opțional)</span></div>
+        <input class="field-input" type="text" placeholder="0000000000000" id="pf-c">
+        <div class="field-hint">CNP-ul nu este obligatoriu, dar îl poți adăuga dacă dorești.</div>
+      </div>
+    </div>
+    <div id="tab-firma" style="display:none">
+      <div class="field"><div class="field-label">Nume firmă</div><input class="field-input" type="text" placeholder="Acme Corp Ltd" id="firma-n"></div>
+      <div class="field" style="margin-top:10px">
+        <div class="field-label">Număr național de identificare fiscală</div>
+        <div style="position:relative">
+          <input class="field-input" type="text" id="firma-cif" placeholder="B37289573" oninput="validateCUI(this)">
+          <span id="cui-status" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:12px;font-weight:500;pointer-events:none"></span>
+        </div>
+        <div class="field-hint" id="cui-hint">Se va verifica validitatea codului fiscal.</div>
+      </div>
+      <div class="field" style="margin-top:10px"><div class="field-label">COD VIES <span style="font-size:10px;color:var(--c-mist);font-weight:400;letter-spacing:0;text-transform:none">(opțional)</span></div><input class="field-input" type="text" placeholder="EU37289573" id="firma-vies"></div>
+      <div class="field" style="margin-top:10px"><div class="field-label">Țară</div><input class="field-input" type="text" placeholder="Alege țara" id="firma-tara"></div>
+      <div class="field" style="margin-top:10px"><div class="field-label">Adresă</div><input class="field-input" type="text" placeholder="Adaugă adresa" id="firma-adr"></div>
+    </div>
+    <div style="margin-top:20px;display:flex;flex-direction:column;gap:8px">
+      <button class="btn primary full" onclick="addClient()">Adaugă client</button>
+    </div>
+  </div>
+</div>
+
+<!-- Sheet: Modifică conținut -->
+<div class="sheet-bg" id="sheet-content" onclick="if(event.target===this)closeSheet('sheet-content')">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-modal-header">
+      <div class="sheet-title">Modifică detalii</div>
+      <button class="sheet-close-x" onclick="closeSheet('sheet-content')">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 2l10 10M12 2L2 12"/></svg>
+      </button>
+    </div>
+    <div class="sheet-sub">Completează sau modifică descrierea și mențiunile facturii.</div>
+    <div class="field"><div class="field-label">Descriere</div><textarea class="field-textarea" id="edit-desc" placeholder="Poți menționa cursul valutar utilizat.">Servicii conform contract</textarea></div>
+    <div class="field" style="margin-top:10px"><div class="field-label">Mențiuni</div><textarea class="field-textarea" id="edit-ment">Factura circulă fara alte detalii</textarea></div>
+    <div style="margin-top:20px;display:flex;flex-direction:column;gap:8px">
+      <button class="btn primary full" onclick="saveContent()">Salvează</button>
+    </div>
+  </div>
+</div>
+
+<!-- Sheet: Modifică IBAN-uri -->
+<div class="sheet-bg" id="sheet-iban" onclick="if(event.target===this)closeSheet('sheet-iban')">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-modal-header">
+      <div class="sheet-title">IBAN-uri afișate pe factură</div>
+      <button class="sheet-close-x" onclick="closeSheet('sheet-iban')">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 2l10 10M12 2L2 12"/></svg>
+      </button>
+    </div>
+    <div class="sheet-sub">Selectează conturile care apar pe factură.</div>
+    <div class="field">
+      <div class="field-label">Nr. factură</div>
+      <input class="field-input readonly" type="text" value="DF-8-BONO-4334/26" readonly>
+      <div class="field-hint">Dacă vrei să modifici numărul facturii te rugăm să ne scrii la <a href="mailto:one@bono.ro" style="color:var(--c-pink)">one@bono.ro</a></div>
+    </div>
+    <div class="field" style="margin-top:18px">
+      <div class="field-label">Conturi bancare</div>
+      <div class="iban-list" id="sheet-iban-list">
+        <!-- rendered by JS via renderIbanList() -->
+      </div>
+      <!-- Add IBAN card (ctx=sheet) -->
+      <div id="sheet-add-iban-trigger" style="margin-top:8px">
+        <button class="btn ghost" style="width:100%;justify-content:flex-start;gap:8px;padding:0;height:40px;font-size:14px" onclick="openAddIban('sheet')">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M7.5 2v11M2 7.5h11"/></svg>
+          Adaugă un alt IBAN
+        </button>
+      </div>
+      <div id="sheet-add-iban-form" class="iban-list" style="display:none;padding:14px;margin-top:8px">
+        <div class="field-label" style="margin-bottom:8px">IBAN nou</div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <input class="field-input" type="text" id="sheet-new-iban-input"
+                 placeholder="RO49 AAAA 0000 0000 0000 0000"
+                 style="flex:1;min-width:0;text-transform:uppercase;letter-spacing:.04em;font-size:13px"
+                 oninput="onIbanInput(this,'sheet')">
+          <select id="sheet-new-iban-ccy-tabs" class="iban-ccy-select" onchange="newIbanCcy=this.value">
+            <option value="RON">RON</option>
+            <option value="EUR">EUR</option>
+            <option value="USD">USD</option>
+            <option value="GBP">GBP</option>
+          </select>
+        </div>
+        <div id="sheet-iban-bank-detected" style="display:none;font-size:12px;color:var(--c-success);padding:5px 2px 0;align-items:center;gap:5px"></div>
+        <div style="font-size:12px;color:var(--c-fog);margin-top:4px;min-height:16px" id="sheet-iban-hint">Introdu IBAN-ul pentru detecție automată</div>
+        <div style="display:flex;gap:8px;margin-top:12px">
+          <button class="btn outline sm" style="flex:1" onclick="cancelAddIban('sheet')">Renunță</button>
+          <button class="btn primary sm" style="flex:1" id="sheet-save-iban-btn" onclick="saveNewIban('sheet','sheet-iban-list')" disabled>Adaugă IBAN</button>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:20px;display:flex;flex-direction:column;gap:8px">
+      <button class="btn primary full" id="sheet-iban-save-main" onclick="saveIban('sheet-iban-list')">Salvează</button>
+    </div>
+  </div>
+</div>
+
+<!-- Sheet: Modifică date -->
+<div class="sheet-bg" id="sheet-date" onclick="if(event.target===this)closeSheet('sheet-date')">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-modal-header">
+      <div class="sheet-title">Modifică datele facturii</div>
+      <button class="sheet-close-x" onclick="closeSheet('sheet-date')">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 2l10 10M12 2L2 12"/></svg>
+      </button>
+    </div>
+    <div class="field">
+      <div class="field-label">Data emitere</div>
+      <div class="field-wrap">
+        <input class="field-input" type="date" id="date-emitere" oninput="computeDueDate()">
+        <svg class="field-wrap-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="2" y="3" width="12" height="11" rx="2"/><path d="M5 1v4M11 1v4M2 7h12"/></svg>
+      </div>
+    </div>
+    <div class="field" style="margin-top:10px">
+      <div class="field-label">Scadență</div>
+      <div class="field-wrap">
+        <input class="field-input" type="number" id="date-zile" value="30" min="1" max="365" oninput="computeDueDate()">
+        <span class="field-wrap-suffix">zile</span>
+      </div>
+    </div>
+    <div class="field" style="margin-top:10px">
+      <div class="field-label">Data scadență</div>
+      <input class="field-input readonly" type="text" id="date-scadenta" readonly>
+    </div>
+    <div style="margin-top:20px;display:flex;flex-direction:column;gap:8px">
+      <button class="btn primary full" onclick="saveDateSheet()">Salvează</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     SHEET: Șablon nou
+════════════════════════════════════════ -->
+<div class="sheet-bg" id="sheet-new-template" onclick="if(event.target===this)closeSheet('sheet-new-template')">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-modal-header">
+      <div class="sheet-title">Șablon nou</div>
+      <button class="sheet-close-x" onclick="closeSheet('sheet-new-template')">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 2l10 10M12 2L2 12"/></svg>
+      </button>
+    </div>
+    <div class="sheet-sub">Textul salvat va apărea ca opțiune rapidă la emiterea facturilor.</div>
+    <div class="field">
+      <div class="field-label">Descriere șablon</div>
+      <input class="field-input" type="text" id="new-template-input"
+             placeholder="ex: Servicii dezvoltare aplicație mobilă"
+             style="margin-top:4px" oninput="onTemplateInput(this)">
+      <div class="field-hint">Maxim 80 de caractere.</div>
+    </div>
+    <div style="margin-top:20px;display:flex;flex-direction:column;gap:8px">
+      <button class="btn primary full" id="save-template-btn" onclick="saveNewTemplate()" disabled>Salvează șablonul</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     SHEET: Stornare factură
+════════════════════════════════════════ -->
+<div class="sheet-bg" id="sheet-storno" onclick="if(event.target===this)closeSheet('sheet-storno')">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-modal-header">
+      <div class="sheet-title">Stornează factura</div>
+      <button class="sheet-close-x" onclick="closeSheet('sheet-storno')">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 2l10 10M12 2L2 12"/></svg>
+      </button>
+    </div>
+    <div class="sheet-sub" id="storno-sub">Factura către —</div>
+    <div class="alert warn" style="margin-bottom:16px">
+      <svg class="ic" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M8 2L1.5 13h13L8 2z"/><path d="M8 6.5v3M8 11h.01"/></svg>
+      <div>Factura de stornare va conține mențiunea automată: <strong>„Stornare factura DF-8-BONO-4333/26 din 5 feb 2026"</strong></div>
+    </div>
+    <div class="field" style="margin-bottom:14px">
+      <div class="field-label">Sumă stornată</div>
+      <div class="field-wrap" style="margin-top:4px">
+        <input class="field-input" type="text" id="storno-amt" inputmode="decimal" placeholder="0">
+        <span class="field-wrap-suffix" id="storno-ccy">Lei</span>
+      </div>
+      <div class="field-hint">Lasă suma completă pentru stornare totală sau introdu o sumă mai mică pentru stornare parțială.</div>
+    </div>
+    <div style="margin-top:20px;display:flex;flex-direction:column;gap:8px">
+      <button class="btn primary full" onclick="confirmStorno()">Emite factură de stornare</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     CONFIRM OVERLAY
+════════════════════════════════════════ -->
+<div class="confirm-overlay" id="confirm-anaf" onclick="if(event.target===this)closeConfirm()">
+  <div class="confirm-box">
+    <div class="confirm-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10.3 3.6L2.8 17A1.9 1.9 0 004.5 20h15a1.9 1.9 0 001.7-3L13.7 3.6a1.9 1.9 0 00-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+    </div>
+    <div class="confirm-title">Trimiți acum la ANAF?</div>
+    <div class="confirm-text">Ești sigur că vrei să trimiți acum factura la ANAF? <strong>După ce factura ajunge la ANAF, ea nu mai poate fi modificată</strong> (dar poate fi anulată și emisă din nou).</div>
+    <button class="btn danger full lg" onclick="confirmAnaf()">Da, trimite la ANAF</button>
+    <button class="btn outline full" style="margin-top:8px" onclick="closeConfirm()">Nu acum</button>
+  </div>
+</div>
+
+<!-- Vox FAB -->
+<button class="vox-fab" title="Întreabă Vox">
+  <span>Întreabă <em>Vox</em></span>
+  <span class="meta">Asistent · 4s</span>
+</button>
+
+<script>
+/* ── State ── */
+const S = {
+  co: {name:'',cui:'',initials:'',isRO:true},
+  ccy: {code:'Lei',symbol:''},
+  line: {desc:'',qty:1,um:'buc',price:''},
+  raw: '', // computed total string for compat
+  tva: false,
+  desc: 'Servicii conform contract',
+  ment: 'Factura circulă fara alte detalii',
+  tab: 'pf',
+  activePanel: null,
+  ibans: [
+    {num:'RO49AAAA1B31000000123945', bank:'ING Bank', ccy:'RON', checked:true},
+    {num:'RO41REVO0000103977331234', bank:'Raiffeisen Bank Romania', ccy:'RON', checked:true},
+    {num:'RO49AAAA1B31000000123456', bank:'Banca Comercială Română', ccy:'EUR', checked:false},
+    {num:'RO49AAAA1B31000000123457', bank:'CEC Bank', ccy:'USD', checked:false},
+  ]
+};
+
+/* ── Navigation ── */
+function goTo(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  const el = document.getElementById(id);
+  if (el) {
+    el.classList.add('active');
+    const sb = el.querySelector('.sbody');
+    if (sb) sb.scrollTop = 0;
+    window.scrollTo(0,0);
+    if (id !== 's-summary') closeRightPanel();
+  }
+}
+
+/* ── Invoice list filter (text) ── */
+function filterInvoices(q) {
+  q = q.toLowerCase();
+  document.querySelectorAll('#invoice-list .inv-item').forEach(i => {
+    i.style.display = i.querySelector('.inv-name').textContent.toLowerCase().includes(q) ? '' : 'none';
+  });
+}
+
+/* ── Filter pills ── */
+function setFilter(btn, type) {
+  document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#invoice-list .inv-item').forEach(item => {
+    const st = item.dataset.status || '';
+    if (type === 'toate') { item.style.display = ''; return; }
+    if (type === 'emise') { item.style.display = (st === 'emisa') ? '' : 'none'; return; }
+    if (type === 'neincasate') { item.style.display = (st === 'neincasata') ? '' : 'none'; return; }
+    if (type === 'restante') { item.style.display = (st === 'restanta') ? '' : 'none'; return; }
+    if (type === 'stornate') { item.style.display = (st === 'stornata') ? '' : 'none'; return; }
+  });
+}
+
+/* ── Company filter ── */
+function filterCompanies(q) {
+  q = (q||'').toLowerCase().trim();
+  const r = document.getElementById('co-recent');
+  const rl = document.getElementById('lbl-recent');
+  const ol = document.getElementById('lbl-other');
+  if (!q) {
+    r.style.display = ''; rl.style.display = ''; ol.style.display = '';
+    document.querySelectorAll('#co-other .co-item').forEach(i => i.style.display = '');
+    return;
+  }
+  r.style.display = 'none'; rl.style.display = 'none'; ol.style.display = '';
+  document.querySelectorAll('#co-other .co-item').forEach(i => {
+    i.style.display = i.querySelector('.co-name').textContent.toLowerCase().includes(q) ? '' : 'none';
+  });
+}
+
+function selectCo(name, cui, initials) {
+  const isRO = cui.startsWith('RO') || (!cui.startsWith('EU') && !cui.includes('-'));
+  S.co = {name, cui, initials, isRO};
+  document.getElementById('amt-co-name').textContent = name;
+  document.getElementById('amt-co-cui').textContent = cui;
+  const dthAmt = document.getElementById('dth-amt-co');
+  if (dthAmt) dthAmt.textContent = name;
+  // Reset line form
+  document.getElementById('line-desc').value = '';
+  document.getElementById('line-qty').value = '1';
+  document.getElementById('line-price').value = '';
+  S.line = {desc:'',qty:1,um:'buc',price:0};
+  S.raw = '';
+  document.querySelectorAll('.amt-continue-btn').forEach(b => b.disabled = true);
+  updateLineTotal();
+  goTo('s-amount');
+  // Size input now that screen is display:flex
+  requestAnimationFrame(() => sizeAmtInput());
+}
+
+function selectCoForeign(name, cui, initials) {
+  S.co = {name, cui, initials, isRO: false};
+  document.getElementById('amt-co-name').textContent = name;
+  document.getElementById('amt-co-cui').textContent = cui;
+  const dthAmt = document.getElementById('dth-amt-co');
+  if (dthAmt) dthAmt.textContent = name;
+  S.line = {desc:'',qty:1,um:'buc',price:0};
+  S.raw = '';
+  document.querySelectorAll('.amt-continue-btn').forEach(b => b.disabled = true);
+  updateLineTotal();
+  goTo('s-amount');
+  requestAnimationFrame(() => sizeAmtInput());
+}
+function switchTab(tab) {
+  S.tab = tab;
+  document.getElementById('tab-pf').style.display = tab==='pf' ? '' : 'none';
+  document.getElementById('tab-firma').style.display = tab==='firma' ? '' : 'none';
+  document.getElementById('tab-pf-btn').classList.toggle('active', tab==='pf');
+  document.getElementById('tab-firma-btn').classList.toggle('active', tab==='firma');
+}
+
+function addClient() {
+  let name, cui, initials;
+  if (S.tab==='pf') {
+    const p=document.getElementById('pf-p').value.trim(), n=document.getElementById('pf-n').value.trim();
+    if (!p && !n) { closeSheet('sheet-foreign'); return; }
+    name = ((p+' '+n).trim()).toUpperCase()||'CLIENT NOU';
+    cui = document.getElementById('pf-c').value.trim()||'PF';
+    initials = [p[0],n[0]].filter(Boolean).join('').toUpperCase()||'PF';
+  } else {
+    name = (document.getElementById('firma-n').value.trim()||'FIRMA EXTERNA').toUpperCase();
+    cui = document.getElementById('firma-vies').value.trim()||document.getElementById('firma-cif').value.trim()||document.getElementById('firma-tara').value.trim()||'INT';
+    initials = name.split(' ').slice(0,2).map(w=>w[0]||'').join('').toUpperCase()||'FE';
+  }
+  closeSheet('sheet-foreign');
+  selectCo(name, cui, initials);
+}
+
+/* ── CUI validation ── */
+let cuiTimer = null;
+function validateCUI(el) {
+  const val = el.value.trim();
+  const status = document.getElementById('cui-status');
+  const hint = document.getElementById('cui-hint');
+  clearTimeout(cuiTimer);
+  status.textContent = '';
+  if (!val || val.length < 2) { hint.textContent = 'Se va verifica validitatea codului fiscal.'; return; }
+  hint.textContent = '⏳ Se verifică…';
+  cuiTimer = setTimeout(() => {
+    // Simulate ANAF lookup
+    const valid = val.length >= 4 && /^[A-Z0-9]+$/i.test(val);
+    if (valid) {
+      el.style.borderColor = 'var(--c-success)';
+      status.textContent = '✓';
+      status.style.color = 'var(--c-success)';
+      hint.textContent = 'Cod fiscal valid.';
+      // Pre-fill company name if firma-n is empty
+      const nameEl = document.getElementById('firma-n');
+      if (!nameEl.value) nameEl.value = 'ACME CORP SRL'; // mock
+    } else {
+      el.style.borderColor = 'var(--c-error)';
+      status.textContent = '✗';
+      status.style.color = 'var(--c-error)';
+      hint.textContent = 'Cod fiscal invalid. Verifică formatul.';
+    }
+  }, 700);
+}
+
+/* ── Currency ── */
+function setCcy(btn, code) {
+  S.ccy = {code, symbol:''};
+  document.getElementById('amt-ccy-lbl') && (document.getElementById('amt-ccy-lbl').textContent = code);
+  const lbl = document.getElementById('line-ccy-lbl');
+  if (lbl) lbl.textContent = '('+code+')';
+  document.querySelectorAll('#ccy-tabs button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  updateLineTotal();
+}
+
+/* ── TVA toggle ── */
+function toggleTva() {
+  S.tva = !S.tva;
+  document.getElementById('tva-sw').classList.toggle('on', S.tva);
+  updateLineTotal();
+}
+
+/* ── UM ── */
+function setUM(btn, um) {
+  S.line.um = um;
+  document.querySelectorAll('#um-tabs button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+/* ── Description template ── */
+function setDesc(txt) {
+  document.getElementById('line-desc').value = txt;
+  S.line.desc = txt;
+  onLineChange();
+}
+
+/* ── Qty panel toggle ── */
+function toggleQtyPanel() {
+  const panel = document.getElementById('qty-panel');
+  const chevron = document.getElementById('qty-chevron');
+  const open = panel.style.display !== 'none';
+  panel.style.display = open ? 'none' : '';
+  chevron.style.transform = open ? '' : 'rotate(180deg)';
+}
+
+/* ── Line change → recalculate total ── */
+function onLineChange() {
+  S.line.desc = (document.getElementById('line-desc')?.value || '').trim();
+  S.line.qty  = parseFloat(document.getElementById('line-qty')?.value) || 1;
+  const rawPrice = (document.getElementById('line-price')?.value || '')
+    .replace(/[.]/g,'').replace(',','.');
+  S.line.price = parseFloat(rawPrice) || 0;
+
+  // Update qty summary label
+  const sumEl = document.getElementById('qty-summary');
+  if (sumEl) sumEl.textContent = S.line.qty + ' ' + (S.line.um || 'buc') + '.';
+
+  // Enable / disable CTA — must run before sizeAmtInput
+  const valid = S.line.price > 0;
+  document.querySelectorAll('.amt-continue-btn').forEach(b => b.disabled = !valid);
+
+  // Resize input (non-critical — runs after button state)
+  try { sizeAmtInput(); } catch(e) {}
+
+  updateLineTotal();
+}
+
+function updateLineTotal() {
+  const qty = S.line.qty || 1;
+  const price = S.line.price || 0;
+  const sub = qty * price;
+  const tvaAmt = S.tva ? sub * 0.19 : 0;
+  const total = sub + tvaAmt;
+  const card = document.getElementById('line-total-card');
+  const hint = document.getElementById('amt-hint');
+  if (hint) {
+    hint.textContent = S.tva && sub > 0
+      ? 'Total cu TVA 19%: ' + fmtNum(total) + ' ' + S.ccy.code
+      : 'Introdu suma fără TVA';
+  }
+  if (!card) return;
+  if (sub > 0) {
+    // Only show card when qty != 1 or TVA is on (otherwise hint is enough)
+    const showCard = S.tva || qty !== 1;
+    card.style.display = showCard ? '' : 'none';
+    if (showCard) {
+      document.getElementById('lt-sub').textContent = fmtNum(sub) + ' ' + S.ccy.code;
+      const tvaRow = document.getElementById('lt-tva-row');
+      tvaRow.style.display = S.tva ? '' : 'none';
+      if (S.tva) document.getElementById('lt-tva').textContent = fmtNum(tvaAmt) + ' ' + S.ccy.code;
+      document.getElementById('lt-total').textContent = fmtNum(total) + ' ' + S.ccy.code;
+    }
+    S.raw = String(total.toFixed(2)).replace('.',',');
+  } else {
+    card.style.display = 'none';
+    S.raw = '';
+  }
+}
+
+function fmtNum(n) {
+  return n.toLocaleString('ro-RO', {minimumFractionDigits:2, maximumFractionDigits:2});
+}
+
+/* ── Compat stubs ── */
+function onAmtInput() {}
+function setChip() {}
+
+function sizeAmtInput() {
+  const el = document.getElementById('line-price');
+  const mirror = document.getElementById('amt-mirror');
+  if (!el || !mirror) return;
+  const val = el.value;
+  const display = val || '0';
+  const len = display.replace(/[.,]/g,'').length;
+  const size = len<=5?64:len<=7?52:len<=9?40:len<=11?32:24;
+  el.style.fontSize = size+'px';
+  mirror.style.cssText = `position:absolute;visibility:hidden;pointer-events:none;white-space:pre;font-size:${size}px;font-weight:700;letter-spacing:-.045em;line-height:1;font-variant-numeric:tabular-nums;font-family:'Inter',sans-serif`;
+  mirror.textContent = display;
+  const mw = mirror.offsetWidth;
+  // Always set explicit width from mirror — no fallback min-width
+  if (mw > 0) el.style.width = (mw + 2) + 'px';
+  else el.style.width = Math.round(size * 0.6) + 'px'; // approx single digit width
+  const ccyEl = document.getElementById('amt-ccy-lbl');
+  if (ccyEl) {
+    ccyEl.style.fontSize = Math.max(16, Math.round(size * .36)) + 'px';
+  }
+}
+
+function fmt(r) {
+  if (!r) return '0';
+  const p = r.replace(/[.]/g,'').split(',');
+  const i = p[0].replace(/(?<=\d)(?=(\d{3})+(?!\d))/g,'.');
+  return p.length>1 ? i+','+p[1] : i;
+}
+function fmtHTML(r) {
+  if (!r) return '0';
+  const p = r.replace(/[.]/g,'').split(',');
+  const i = p[0].replace(/(?<=\d)(?=(\d{3})+(?!\d))/g,'.');
+  return p.length>1 ? i+'<span class="num-dec">,'+p[1]+'</span>' : i;
+}
+
+/* ── Go to summary ── */
+function goToSummary() {
+  const desc = S.line.desc || 'Servicii conform contract';
+  const lineStr = `${S.line.qty} ${S.line.um} × ${fmtNum(S.line.price)} ${S.ccy.code}`;
+  document.getElementById('sum-co').textContent = S.co.name||'–';
+  document.getElementById('sum-cui').textContent = S.co.cui||'–';
+  document.getElementById('sum-sub').textContent = S.co.cui||'';
+  document.getElementById('sum-amt').innerHTML = S.raw ? fmtHTML(S.raw) : '–';
+  document.getElementById('sum-ccy').textContent = S.ccy.code;
+  document.getElementById('sum-desc').textContent = desc;
+  document.getElementById('sum-ment').textContent = S.ment;
+  // show line detail in summary
+  const lineDetail = document.getElementById('sum-line-detail');
+  if (lineDetail) lineDetail.textContent = lineStr;
+  updateIbanDisplay();
+  const dthSum = document.getElementById('dth-sum-title');
+  if (dthSum) dthSum.textContent = 'DF-8-BONO-4334/26';
+  goTo('s-summary');
+}
+
+function updateIbanDisplay() {
+  const container = document.getElementById('sum-iban-rows');
+  if (!container) return;
+  const checked = S.ibans.filter(i => i.checked);
+  if (!checked.length) {
+    container.innerHTML = '<div class="detail-row"><span class="detail-label">IBAN</span><span class="detail-value muted">Niciun cont selectat</span></div>';
+    return;
+  }
+  container.innerHTML = checked.map((ib, i) => `
+    <div class="detail-row tappable iban-summary-row" onclick="openSheet('sheet-iban')" style="align-items:center">
+      <span class="detail-label" style="flex-shrink:0">IBAN ${i+1}</span>
+      <div style="display:flex;align-items:center;gap:8px;justify-content:flex-end;min-width:0;flex:1">
+        <div style="text-align:right;min-width:0">
+          <div style="font-size:11px;font-weight:500;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${ib.num}</div>
+          <div style="font-size:11px;color:var(--c-fog)">${ib.bank}</div>
+        </div>
+        <span class="iban-ccy-badge" style="flex-shrink:0">${ib.ccy}</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+/* ── Content save ── */
+function saveContent() {
+  const d = document.getElementById('edit-desc').value.trim();
+  const m = document.getElementById('edit-ment').value.trim();
+  if (d) S.desc = d;
+  if (m) S.ment = m;
+  document.getElementById('sum-desc').textContent = S.desc;
+  document.getElementById('sum-ment').textContent = S.ment;
+  closeSheet('sheet-content');
+  closeRightPanel();
+}
+
+/* ── IBAN helpers ── */
+function renderIbanList(containerId) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  container.innerHTML = S.ibans.map((ib, idx) => `
+    <div class="iban-row iban-row-hover" onclick="toggleIbanState(${idx}, '${containerId}')">
+      <div class="iban-check ${ib.checked?'on':''}">
+        ${ib.checked?'<svg width="10" height="8" viewBox="0 0 10 8" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4l3 3 5-6"/></svg>':''}
+      </div>
+      <div style="flex:1;min-width:0">
+        <div class="iban-num">${ib.num}</div>
+        <div class="iban-bank">${ib.bank}</div>
+      </div>
+      <span class="iban-ccy-badge">${ib.ccy}</span>
+      <div class="iban-row-actions" onclick="event.stopPropagation()">
+        <button class="iban-action" onclick="event.stopPropagation()">Modifică</button>
+        <button class="iban-action del" onclick="event.stopPropagation();removeIban(${idx},'${containerId}')">Șterge</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function toggleIbanState(idx, containerId) {
+  S.ibans[idx].checked = !S.ibans[idx].checked;
+  renderIbanList(containerId);
+}
+
+function saveIban(listId) {
+  updateIbanDisplay();
+  closeSheet('sheet-iban');
+  closeRightPanel();
+}
+
+/* ── Date sheet ── */
+function computeDueDate() {
+  const emitere = document.getElementById('date-emitere').value;
+  const zile = parseInt(document.getElementById('date-zile').value)||30;
+  if (emitere) {
+    const d = new Date(emitere); d.setDate(d.getDate()+zile);
+    document.getElementById('date-scadenta').value = d.toLocaleDateString('ro-RO',{day:'2-digit',month:'short',year:'numeric'});
+  }
+}
+
+function saveDateSheet() {
+  const emitere = document.getElementById('date-emitere').value;
+  const zile = parseInt(document.getElementById('date-zile').value)||30;
+  if (emitere) {
+    const d = new Date(emitere);
+    document.getElementById('sum-emitere').textContent = d.toLocaleDateString('ro-RO',{day:'2-digit',month:'short',year:'numeric'});
+    const due = new Date(emitere); due.setDate(due.getDate()+zile);
+    document.getElementById('sum-scadenta').textContent = due.toLocaleDateString('ro-RO',{day:'2-digit',month:'short',year:'numeric'});
+    document.getElementById('sum-scadenta-label').textContent = 'Scadență ('+zile+' zile)';
+  }
+  closeSheet('sheet-date');
+  closeRightPanel();
+}
+
+function initDateSheet() {
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('date-emitere').value = today;
+  computeDueDate();
+}
+
+/* ── New template ── */
+function onTemplateInput(el) {
+  if (el.value.length > 80) el.value = el.value.slice(0, 80);
+  document.getElementById('save-template-btn').disabled = el.value.trim().length < 2;
+}
+
+function saveNewTemplate() {
+  const val = document.getElementById('new-template-input').value.trim();
+  if (!val) return;
+  const row = document.getElementById('desc-chips');
+  const addBtn = row.querySelector('.desc-chip-add');
+  const newChip = document.createElement('button');
+  newChip.className = 'btn outline sm desc-chip';
+  newChip.textContent = val.length > 22 ? val.slice(0,22)+'…' : val;
+  newChip.title = val;
+  newChip.onclick = () => setDesc(val);
+  row.insertBefore(newChip, addBtn);
+  document.getElementById('new-template-input').value = '';
+  document.getElementById('save-template-btn').disabled = true;
+  closeSheet('sheet-new-template');
+  setDesc(val);
+}
+
+/* ── Add IBAN mini-flow (context-aware: ctx = 'sheet' | 'rp') ── */
+const BANK_MAP = {
+  'RNCB':'BCR', 'BTRL':'Banca Transilvania', 'INGB':'ING Bank',
+  'RZBR':'Raiffeisen Bank', 'BREL':'Libra Bank', 'CECE':'CEC Bank',
+  'BRDE':'BRD', 'UGBI':'Garanti Bank', 'NBOR':'Banca Nationala',
+  'REVO':'Revolut', 'WBAN':'Wise'
+};
+let newIbanCcy = 'RON';
+let ibanTimer = null;
+
+function openAddIban(ctx) {
+  document.getElementById(`${ctx}-add-iban-trigger`).style.display = 'none';
+  document.getElementById(`${ctx}-add-iban-form`).style.display = '';
+  document.getElementById(`${ctx}-new-iban-input`).focus();
+  // Disable the sheet's main save button while adding
+  const mainSave = document.getElementById(`${ctx}-iban-save-main`);
+  if (mainSave) mainSave.disabled = true;
+}
+
+function cancelAddIban(ctx) {
+  const form = document.getElementById(`${ctx}-add-iban-form`);
+  const trigger = document.getElementById(`${ctx}-add-iban-trigger`);
+  if (form) form.style.display = 'none';
+  if (trigger) trigger.style.display = '';
+  const inp = document.getElementById(`${ctx}-new-iban-input`);
+  if (inp) inp.value = '';
+  // Re-enable main save
+  const mainSave = document.getElementById(`${ctx}-iban-save-main`);
+  if (mainSave) mainSave.disabled = false;
+  resetIbanValidation(ctx);
+}
+
+function saveNewIban(ctx, listId) {
+  const raw    = (document.getElementById(`${ctx}-new-iban-input`)?.value || '').replace(/\s/g,'');
+  const bankEl = document.getElementById(`${ctx}-iban-bank-detected`);
+  const bank   = (bankEl?.textContent || '').trim() || 'Bancă nouă';
+  const ccySel = document.getElementById(`${ctx}-new-iban-ccy-tabs`);
+  const ccy    = ccySel?.value || newIbanCcy;
+  if (!raw) return;
+  S.ibans.push({ num: raw, bank, ccy, checked: true });
+  renderIbanList(listId);
+  cancelAddIban(ctx);
+  updateIbanDisplay();
+}
+
+function onIbanInput(el, ctx) {
+  let raw = el.value.replace(/\s/g,'').toUpperCase().replace(/[^A-Z0-9]/g,'');
+  if (raw.length > 34) raw = raw.slice(0, 34);
+  el.value = raw.match(/.{1,4}/g)?.join(' ') || raw;
+  clearTimeout(ibanTimer);
+  resetIbanValidation(ctx);
+  if (raw.length < 4) return;
+  ibanTimer = setTimeout(() => validateIbanInput(raw, ctx), 600);
+}
+
+function validateIbanInput(raw, ctx) {
+  const hintEl  = document.getElementById(`${ctx}-iban-hint`);
+  const bankEl  = document.getElementById(`${ctx}-iban-bank-detected`);
+  const saveBtn = document.getElementById(`${ctx}-save-iban-btn`);
+  const isRO = raw.startsWith('RO');
+  const correctLen = isRO ? raw.length === 24 : raw.length >= 15 && raw.length <= 34;
+  const bankCode = raw.slice(4, 8);
+  const bankName = BANK_MAP[bankCode] || '';
+
+  if (!correctLen) {
+    if (hintEl) hintEl.textContent = isRO ? `${raw.length}/24 caractere` : 'Introdu IBAN-ul complet';
+    if (bankEl) bankEl.style.display = 'none';
+    if (saveBtn) saveBtn.disabled = true;
+    return;
+  }
+  const valid = /^[A-Z]{2}[0-9]{2}[A-Z0-9]{10,30}$/.test(raw);
+  if (valid) {
+    if (hintEl) { hintEl.textContent = 'IBAN valid'; hintEl.style.color = ''; }
+    if (bankEl) {
+      bankEl.innerHTML = bankName
+        ? `<svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 6l3 3 5-5"/></svg>${bankName}`
+        : '';
+      bankEl.style.display = bankName ? 'flex' : 'none';
+      bankEl.style.color = 'var(--c-success)';
+    }
+    if (saveBtn) saveBtn.disabled = false;
+  } else {
+    if (hintEl) { hintEl.textContent = 'IBAN invalid — verifică numărul'; hintEl.style.color = 'var(--c-error)'; }
+    if (bankEl) bankEl.style.display = 'none';
+    if (saveBtn) saveBtn.disabled = true;
+  }
+}
+
+function resetIbanValidation(ctx) {
+  const hintEl  = document.getElementById(`${ctx}-iban-hint`);
+  const bankEl  = document.getElementById(`${ctx}-iban-bank-detected`);
+  const saveBtn = document.getElementById(`${ctx}-save-iban-btn`);
+  if (hintEl)  { hintEl.textContent = 'Introdu IBAN-ul pentru detectare automată a băncii'; hintEl.style.color = ''; }
+  if (bankEl)  bankEl.style.display = 'none';
+  if (saveBtn) saveBtn.disabled = true;
+}
+
+/* helper: returns the add-IBAN card HTML for a given ctx */
+function addIbanFormHTML(ctx, listId) {
+  return `
+    <div id="${ctx}-add-iban-trigger" style="margin-top:8px">
+      <button class="btn ghost" style="width:100%;justify-content:flex-start;gap:8px;padding:0;height:40px;font-size:14px" onclick="openAddIban('${ctx}')">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M7.5 2v11M2 7.5h11"/></svg>
+        Adaugă un alt IBAN
+      </button>
+    </div>
+    <div id="${ctx}-add-iban-form" class="iban-list" style="display:none;padding:14px;margin-top:8px">
+      <div class="field-label" style="margin-bottom:8px">IBAN nou</div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <input class="field-input" type="text" id="${ctx}-new-iban-input"
+               placeholder="RO49 AAAA 0000 0000 0000 0000"
+               style="flex:1;min-width:0;text-transform:uppercase;letter-spacing:.04em;font-size:13px"
+               oninput="onIbanInput(this,'${ctx}')">
+        <select id="${ctx}-new-iban-ccy-tabs" class="iban-ccy-select" onchange="newIbanCcy=this.value">
+          <option value="RON">RON</option>
+          <option value="EUR">EUR</option>
+          <option value="USD">USD</option>
+          <option value="GBP">GBP</option>
+        </select>
+      </div>
+      <div id="${ctx}-iban-bank-detected" style="display:none;font-size:12px;color:var(--c-success);padding:5px 2px 0;align-items:center;gap:5px"></div>
+      <div style="font-size:12px;color:var(--c-fog);margin-top:4px;min-height:16px" id="${ctx}-iban-hint">Introdu IBAN-ul pentru detecție automată</div>
+      <div style="display:flex;gap:8px;margin-top:12px">
+        <button class="btn outline sm" style="flex:1" onclick="cancelAddIban('${ctx}')">Renunță</button>
+        <button class="btn primary sm" style="flex:1" id="${ctx}-save-iban-btn" onclick="saveNewIban('${ctx}','${listId}')" disabled>Adaugă IBAN</button>
+      </div>
+    </div>
+  `;
+}
+
+/* ── Storno ── */
+function openStorno(name, amt, ccy) {
+  document.getElementById('storno-sub').textContent = 'Factură către ' + name;
+  document.getElementById('storno-amt').value = amt;
+  document.getElementById('storno-ccy').textContent = ccy;
+  openSheet('sheet-storno');
+}
+
+function confirmStorno() {
+  closeSheet('sheet-storno');
+  // Show toast
+  const t = document.createElement('div');
+  t.style.cssText = 'position:fixed;top:80px;left:50%;transform:translateX(-50%);background:var(--c-success);color:#fff;padding:10px 22px;border-radius:999px;font-size:13px;font-weight:600;z-index:300;box-shadow:0 4px 16px rgba(31,122,77,.25)';
+  t.textContent = '✓ Factură de stornare emisă';
+  document.body.appendChild(t); setTimeout(()=>t.remove(),2500);
+}
+
+function removeIban(idx, containerId) {
+  S.ibans.splice(idx, 1);
+  renderIbanList(containerId);
+  updateIbanDisplay();
+}
+
+/* ── Sheets / Modals ── */
+function openSheet(id) {
+  if (window.innerWidth >= 1024 && document.getElementById('s-summary').classList.contains('active')) {
+    const type = id.replace('sheet-', '');
+    openRightPanel(type);
+    return;
+  }
+  if (id === 'sheet-date') initDateSheet();
+  if (id === 'sheet-iban') { renderIbanList('sheet-iban-list'); cancelAddIban('sheet'); }
+  document.getElementById(id).classList.add('open');
+}
+
+function closeSheet(id) {
+  document.getElementById(id).classList.remove('open');
+}
+
+/* ── Right panel (desktop S4) ── */
+function openRightPanel(type) {
+  S.activePanel = type;
+  const placeholder = document.getElementById('rp-placeholder');
+  const form = document.getElementById('rp-form');
+  const grid = document.querySelector('.summary-2col');
+  placeholder.style.display = 'none';
+  form.style.display = 'block';
+  form.innerHTML = getRightPanelHTML(type);
+  if (grid) grid.classList.add('panel-open');
+  if (type === 'date') initRightPanelDate();
+}
+
+function closeRightPanel() {
+  S.activePanel = null;
+  const placeholder = document.getElementById('rp-placeholder');
+  const form = document.getElementById('rp-form');
+  const grid = document.querySelector('.summary-2col');
+  if (!placeholder || !form) return;
+  placeholder.style.display = '';
+  form.style.display = 'none';
+  form.innerHTML = '';
+  if (grid) grid.classList.remove('panel-open');
+}
+
+function getRightPanelHTML(type) {
+  if (type === 'iban') {
+    const ibansHTML = S.ibans.map((ib, idx) => `
+      <div class="iban-row iban-row-hover" onclick="toggleIbanState(${idx}, 'rp-iban-list'); renderIbanList('rp-iban-list'); updateIbanDisplay()">
+        <div class="iban-check ${ib.checked?'on':''}">
+          ${ib.checked?'<svg width="10" height="8" viewBox="0 0 10 8" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4l3 3 5-6"/></svg>':''}
+        </div>
+        <div style="flex:1;min-width:0"><div class="iban-num">${ib.num}</div><div class="iban-bank">${ib.bank}</div></div>
+        <span class="iban-ccy-badge">${ib.ccy}</span>
+        <div class="iban-row-actions" onclick="event.stopPropagation()">
+          <button class="iban-action" onclick="event.stopPropagation()">Modifică</button>
+          <button class="iban-action del" onclick="event.stopPropagation();removeIban(${idx},'rp-iban-list')">Șterge</button>
+        </div>
+      </div>
+    `).join('');
+    return `
+      <div class="rp-form-title">Conturi bancare pe factură</div>
+      <div class="iban-list" id="rp-iban-list" style="margin-bottom:0">${ibansHTML}
+        <!-- Inline add row -->
+        <div id="rp-add-iban-trigger" style="margin-top:0">
+          <button class="btn ghost" style="width:100%;justify-content:flex-start;gap:8px;padding:4px 14px;height:44px;font-size:14px" onclick="openAddIban('rp')">
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M7.5 2v11M2 7.5h11"/></svg>
+            Adaugă un alt IBAN
+          </button>
+        </div>
+        <div id="rp-add-iban-form" style="display:none">
+          <div class="iban-row-inline">
+            <button class="btn ghost icon-only" onclick="cancelAddIban('rp')" style="height:38px;width:38px;flex-shrink:0;color:var(--c-fog)">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 2l10 10M12 2L2 12"/></svg>
+            </button>
+            <input class="ii-input" type="text" id="rp-new-iban-input"
+                   placeholder="RO49 AAAA 0000 0000 0000 0000"
+                   oninput="onIbanInput(this,'rp')">
+            <select id="rp-new-iban-ccy-tabs" class="iban-ccy-select" style="height:38px" onchange="newIbanCcy=this.value">
+              <option value="RON">RON</option>
+              <option value="EUR">EUR</option>
+              <option value="USD">USD</option>
+              <option value="GBP">GBP</option>
+            </select>
+            <button class="btn primary icon-only" id="rp-save-iban-btn" onclick="saveNewIban('rp','rp-iban-list')" disabled style="height:38px;width:38px;flex-shrink:0">
+              <svg width="12" height="10" viewBox="0 0 12 10" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 5l4 4 6-8"/></svg>
+            </button>
+          </div>
+          <div id="rp-iban-bank-detected" style="display:none;font-size:13px;font-weight:500;color:var(--c-success);padding:4px 14px 6px;align-items:center;gap:6px">
+            <svg width="13" height="11" viewBox="0 0 13 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 5.5l4 4 7-9"/></svg>
+          </div>
+          <div style="font-size:12px;color:var(--c-fog);padding:2px 14px 10px;min-height:20px" id="rp-iban-hint"></div>
+        </div>
+      </div>
+      <div class="rp-actions" style="margin-top:16px">
+        <button class="btn outline sm" onclick="closeRightPanel()">Închide</button>
+        <button class="btn primary sm" id="rp-iban-save-main" onclick="saveIban('rp-iban-list')">Salvează</button>
+      </div>
+    `;
+  }
+  if (type === 'content') {
+    return `
+      <div class="rp-form-title">Conținut factură</div>
+      <div class="field" style="margin-bottom:14px">
+        <div class="field-label">Descriere</div>
+        <textarea class="field-textarea" id="rp-desc" style="margin-top:4px">${S.desc}</textarea>
+      </div>
+      <div class="field">
+        <div class="field-label">Mențiuni</div>
+        <textarea class="field-textarea" id="rp-ment" style="margin-top:4px">${S.ment}</textarea>
+      </div>
+      <div class="rp-actions">
+        <button class="btn outline sm" onclick="closeRightPanel()">Anulează</button>
+        <button class="btn primary sm" onclick="saveContentPanel()">Salvează</button>
+      </div>
+    `;
+  }
+  if (type === 'date') {
+    return `
+      <div class="rp-form-title">Date factură</div>
+      <div class="field" style="margin-bottom:14px">
+        <div class="field-label">Data emitere</div>
+        <div class="field-wrap" style="margin-top:4px">
+          <input class="field-input" type="date" id="rp-date-emitere" oninput="computeRpDueDate()">
+          <svg class="field-wrap-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="2" y="3" width="12" height="11" rx="2"/><path d="M5 1v4M11 1v4M2 7h12"/></svg>
+        </div>
+      </div>
+      <div class="field" style="margin-bottom:14px">
+        <div class="field-label">Scadență</div>
+        <div class="field-wrap" style="margin-top:4px">
+          <input class="field-input" type="number" id="rp-date-zile" value="30" min="1" max="365" oninput="computeRpDueDate()">
+          <span class="field-wrap-suffix">zile</span>
+        </div>
+      </div>
+      <div class="field">
+        <div class="field-label">Data scadență</div>
+        <input class="field-input readonly" type="text" id="rp-date-scadenta" readonly style="margin-top:4px">
+      </div>
+      <div class="rp-actions">
+        <button class="btn outline sm" onclick="closeRightPanel()">Anulează</button>
+        <button class="btn primary sm" onclick="saveRpDate()">Salvează</button>
+      </div>
+    `;
+  }
+  return '';
+}
+
+function initRightPanelDate() {
+  setTimeout(() => {
+    const el = document.getElementById('rp-date-emitere');
+    if (el) { el.value = new Date().toISOString().split('T')[0]; computeRpDueDate(); }
+  }, 50);
+}
+
+function computeRpDueDate() {
+  const emitere = document.getElementById('rp-date-emitere')?.value;
+  const zile = parseInt(document.getElementById('rp-date-zile')?.value)||30;
+  const out = document.getElementById('rp-date-scadenta');
+  if (emitere && out) {
+    const d = new Date(emitere); d.setDate(d.getDate()+zile);
+    out.value = d.toLocaleDateString('ro-RO',{day:'2-digit',month:'short',year:'numeric'});
+  }
+}
+
+function saveRpDate() {
+  const emitere = document.getElementById('rp-date-emitere')?.value;
+  const zile = parseInt(document.getElementById('rp-date-zile')?.value)||30;
+  if (emitere) {
+    const d = new Date(emitere);
+    document.getElementById('sum-emitere').textContent = d.toLocaleDateString('ro-RO',{day:'2-digit',month:'short',year:'numeric'});
+    const due = new Date(emitere); due.setDate(due.getDate()+zile);
+    document.getElementById('sum-scadenta').textContent = due.toLocaleDateString('ro-RO',{day:'2-digit',month:'short',year:'numeric'});
+    document.getElementById('sum-scadenta-label').textContent = 'Scadență ('+zile+' zile)';
+  }
+  closeRightPanel();
+}
+
+function saveContentPanel() {
+  const d = document.getElementById('rp-desc')?.value.trim();
+  const m = document.getElementById('rp-ment')?.value.trim();
+  if (d) { S.desc = d; document.getElementById('sum-desc').textContent = S.desc; }
+  if (m) { S.ment = m; document.getElementById('sum-ment').textContent = S.ment; }
+  closeRightPanel();
+}
+
+/* ── Emit invoice ── */
+function emiteFactura() {
+  const btns = document.querySelectorAll('.emit-trigger');
+  btns.forEach(b => { b.textContent = 'Se procesează…'; b.disabled = true; });
+  setTimeout(() => {
+    const aHTML = S.raw ? fmtHTML(S.raw) : '–';
+    document.getElementById('suc-co').textContent = S.co.name||'–';
+    document.getElementById('suc-amt').innerHTML = aHTML;
+    document.getElementById('suc-ccy').textContent = ' '+S.ccy.code;
+    document.getElementById('suc-info-co').textContent = S.co.name||'–';
+    document.getElementById('suc-info-amt').innerHTML = aHTML+'<span style="font-size:.85em;font-weight:400;color:var(--c-fog)"> '+S.ccy.code+'</span>';
+    const dthSuc = document.getElementById('dth-suc-title');
+    if (dthSuc) dthSuc.textContent = 'DF-8-BONO-4334/26';
+    // ANAF status row
+    const anafStatusRow = document.getElementById('anaf-status-row');
+    if (anafStatusRow) anafStatusRow.style.display = S.co.isRO ? '' : 'none';
+    btns.forEach(b => {
+      b.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 8L6.5 11.5L13 4.5"/></svg> Emite factura';
+      b.disabled = false;
+    });
+    startTimer();
+    // Hide e-Factura card for foreign clients
+    const anafCard = document.querySelector('.anaf-card');
+    if (anafCard) anafCard.style.display = S.co.isRO ? '' : 'none';
+    goTo('s-success');
+  }, 800);
+}
+
+/* ── ANAF timer ── */
+let ts = 600, ti = null;
+function startTimer() {
+  clearInterval(ti); ts = 600; updT();
+  ti = setInterval(() => { if (ts > 0) { ts--; updT(); } else { clearInterval(ti); autoSendAnaf(); } }, 1000);
+}
+function updT() {
+  const m = String(Math.floor(ts/60)).padStart(2,'0'),
+        s = String(ts%60).padStart(2,'0');
+  document.getElementById('anaf-timer').textContent = `${m}:${s}`;
+}
+function autoSendAnaf() {
+  document.getElementById('anaf-timer').textContent = 'Trimis automat';
+  document.getElementById('anaf-lbl').textContent = 'Trimis în e-Factura';
+  const b = document.getElementById('anaf-badge');
+  b.className = 'badge success'; b.textContent = 'Trimisă la ANAF';
+  document.querySelectorAll('.anaf-actions').forEach(el => el.style.display = 'none');
+  showAnafSentState();
+}
+function openConfirm() { document.getElementById('confirm-anaf').classList.add('open'); }
+function closeConfirm() { document.getElementById('confirm-anaf').classList.remove('open'); }
+function confirmAnaf() {
+  closeConfirm(); clearInterval(ti);
+  document.getElementById('anaf-timer').textContent = 'Trimis acum';
+  document.getElementById('anaf-lbl').textContent = 'Status trimitere';
+  const b = document.getElementById('anaf-badge');
+  b.className = 'badge success'; b.textContent = 'Trimisă la ANAF';
+  showAnafSentState();
+  const t = document.createElement('div');
+  t.style.cssText = 'position:fixed;top:80px;left:50%;transform:translateX(-50%);background:var(--c-success);color:#fff;padding:10px 22px;border-radius:999px;font-size:13px;font-weight:600;z-index:300;box-shadow:0 4px 16px rgba(31,122,77,.25)';
+  t.textContent = '✓ Trimis la ANAF';
+  document.body.appendChild(t); setTimeout(() => t.remove(), 2500);
+}
+
+function showAnafSentState() {
+  const body = document.querySelector('.anaf-body');
+  if (!body) return;
+  body.innerHTML = `
+    <div style="display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:var(--c-fog)">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--c-success);flex-shrink:0"><path d="M3 8L6.5 11.5L13 4.5"/></svg>
+      Factura a fost trimisă la ANAF
+    </div>
+  `;
+}
+
+
+/* ── Invoice PDF ── */
+function openInvoicePDF() {
+  const invoiceNum = 'DF-8-BONO-4334/26';
+  const today = new Date();
+  const emitere    = today.toLocaleDateString('ro-RO',{day:'2-digit',month:'long',year:'numeric'});
+  const emitereEN  = today.toLocaleDateString('en-GB',{day:'2-digit',month:'long',year:'numeric'});
+  const due = new Date(today); due.setDate(due.getDate()+30);
+  const scadenta   = due.toLocaleDateString('ro-RO',{day:'2-digit',month:'long',year:'numeric'});
+  const scadentaEN = due.toLocaleDateString('en-GB',{day:'2-digit',month:'long',year:'numeric'});
+
+  const coName = S.co.name || '–';
+  const coCUI  = S.co.cui  || '–';
+  const desc   = S.line.desc || S.desc || 'Servicii conform contract';
+  const qty    = S.line.qty || 1;
+  const um     = S.line.um || 'buc';
+  const price  = S.line.price || parseFloat((S.raw||'0').replace(/[.]/g,'').replace(',','.')) || 0;
+  const total  = price * qty;
+  const totalFmt = total.toLocaleString('ro-RO',{minimumFractionDigits:2,maximumFractionDigits:2});
+  const priceFmt = price.toLocaleString('ro-RO',{minimumFractionDigits:2,maximumFractionDigits:2});
+  const ccy = S.ccy.code || 'Lei';
+  const checkedIbans = S.ibans.filter(i=>i.checked);
+  const ibanRows = checkedIbans.map(ib=>`
+    <div class="iban-entry">
+      <span class="iban-num">${ib.num}</span>
+      <span class="iban-bank">${ib.bank} · ${ib.ccy}</span>
+    </div>`).join('');
+  const totalInt = totalFmt.split(',')[0];
+  const totalDec = (totalFmt.split(',')[1]||'00');
+
+  const isBilingual = !S.co.isRO;
+
+  // bilingual helpers — show RO / EN pair or just RO
+  const bi = (ro, en) => isBilingual
+    ? `<span>${ro}</span><span class="en"> / ${en}</span>`
+    : ro;
+
+  const css = `*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html,body{background:#fff;font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;color:#110D10}.invoice{width:794px;min-height:1123px;margin:0 auto;background:#fff;padding:72px 72px 64px;display:flex;flex-direction:column}.inv-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:48px}.inv-title{font-size:22px;font-weight:700;letter-spacing:-.03em;color:#110D10}.inv-title .en{font-size:14px;font-weight:400;color:#ABA59E;display:block;margin-top:3px;letter-spacing:0}.inv-meta{text-align:right}.inv-number{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500;color:#110D10;letter-spacing:.02em}.inv-date{font-size:12px;color:#7A7570;margin-top:3px}.rule{height:1px;background:#E4DDD5;margin-bottom:32px}.parties{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:48px}.party-role{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#ABA59E;margin-bottom:8px}.party-role .en{font-weight:400;letter-spacing:.10em;color:#C5BFB8}.party-name{font-size:15px;font-weight:600;color:#110D10;margin-bottom:6px}.party-line{font-size:12px;color:#7A7570;line-height:1.75}.party-line strong{color:#110D10;font-weight:500}.party-line .en{color:#ABA59E}.lines-table{width:100%;border-collapse:collapse}.lines-table thead tr{border-bottom:1.5px solid #110D10}.lines-table thead th{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#7A7570;padding:0 0 9px;text-align:left}.lines-table thead th .en{display:block;font-weight:400;color:#C5BFB8;letter-spacing:.06em;margin-top:1px}.lines-table thead th.r{text-align:right}.lines-table tbody tr{border-bottom:1px solid #EEE9E2}.lines-table tbody tr:last-child{border-bottom:none}.lines-table tbody td{padding:14px 0;font-size:13px;color:#110D10;vertical-align:top}.lines-table tbody td.r{text-align:right;font-variant-numeric:tabular-nums}.line-desc{font-weight:500;margin-bottom:2px}.line-sub{font-size:11px;color:#7A7570}.totals-wrap{display:flex;justify-content:flex-end;margin-top:24px;padding-top:24px;border-top:1px solid #E4DDD5}.totals{width:260px}.total-row{display:flex;justify-content:space-between;align-items:baseline;padding:4px 0;font-size:12px}.total-row .tl{color:#7A7570}.total-row .tl .en{color:#C5BFB8}.total-row .tv{font-variant-numeric:tabular-nums;font-weight:500;color:#110D10}.total-row.grand{padding-top:12px;margin-top:10px;border-top:1.5px solid #110D10}.total-row.grand .tl{font-size:13px;font-weight:600;color:#110D10}.total-row.grand .tv{font-size:20px;font-weight:700;letter-spacing:-.03em;font-variant-numeric:tabular-nums;color:#110D10}.total-row.grand .tv .dec{font-size:.6em;font-weight:500;letter-spacing:0;vertical-align:super}.total-row.grand .tv .ccy{font-size:12px;font-weight:400;color:#7A7570;margin-left:5px;letter-spacing:0}.payment-section{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:40px;padding-top:32px;border-top:1px solid #E4DDD5}.pay-label{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#ABA59E;margin-bottom:10px}.pay-label .en{font-weight:400;color:#C5BFB8;letter-spacing:.08em}.iban-entry{display:flex;align-items:baseline;justify-content:space-between;padding:6px 0;border-bottom:1px solid #EEE9E2}.iban-entry:last-child{border-bottom:none}.iban-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:#110D10;letter-spacing:.02em}.iban-bank{font-size:11px;color:#ABA59E;margin-left:10px;white-space:nowrap}.pay-detail-line{display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px solid #EEE9E2}.pay-detail-line:last-child{border-bottom:none}.pay-detail-line .pdl{color:#7A7570}.pay-detail-line .pdl .en{color:#C5BFB8}.pay-detail-line .pdv{color:#110D10;font-weight:500;font-variant-numeric:tabular-nums}.mentions{margin-top:40px;padding-top:24px;border-top:1px solid #EEE9E2}.mentions p{font-size:11px;color:#ABA59E;line-height:1.75}.en{color:#ABA59E}.inv-footer{margin-top:auto;padding-top:32px;border-top:1px solid #EEE9E2;display:flex;justify-content:space-between;align-items:center}.footer-brand{font-family:'Fraunces',serif;font-style:italic;font-size:13px;font-weight:500;color:#ABA59E}.footer-meta{font-size:10px;color:#ABA59E;text-align:right;line-height:1.7}@media print{html,body{background:white}.invoice{padding:60px}}`;
+
+  const html = `<!DOCTYPE html>
+<html lang="${isBilingual?'ro-en':'ro'}"><head>
+<meta charset="UTF-8">
+<title>Factura ${invoiceNum}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>${css}</style></head>
+<body><div class="invoice">
+  <div class="inv-header">
+    <div class="inv-title">
+      Factură fiscală
+      ${isBilingual ? '<span class="en">Tax Invoice</span>' : ''}
+    </div>
+    <div class="inv-meta">
+      <div class="inv-number">${invoiceNum}</div>
+      <div class="inv-date">${emitere}${isBilingual ? ` <span class="en">/ ${emitereEN}</span>` : ''}</div>
+    </div>
+  </div>
+  <div class="rule"></div>
+  <div class="parties">
+    <div>
+      <div class="party-role">${bi('Furnizor','Supplier')}</div>
+      <div class="party-name">Bono Fintech SRL</div>
+      <div class="party-line"><strong>CUI</strong> RO1238808</div>
+      <div class="party-line"><strong>${bi('Nr. Reg. Com.','Trade Reg.')}</strong> J40/12345/2022</div>
+      <div class="party-line">Str. Exemplu nr. 1</div>
+      <div class="party-line">București, România</div>
+    </div>
+    <div>
+      <div class="party-role">${bi('Client','Bill To')}</div>
+      <div class="party-name">${coName}</div>
+      <div class="party-line"><strong>${bi('Cod fiscal','Tax ID')}</strong> ${coCUI}</div>
+    </div>
+  </div>
+  <table class="lines-table">
+    <thead><tr>
+      <th style="width:52%">${bi('Descriere','Description')}</th>
+      <th class="r" style="width:10%">${bi('Cant.','Qty')}</th>
+      <th class="r" style="width:9%">${bi('U.M.','Unit')}</th>
+      <th class="r" style="width:15%">${bi('Preț / unit.','Unit price')}</th>
+      <th class="r" style="width:14%">Total</th>
+    </tr></thead>
+    <tbody><tr>
+      <td><div class="line-desc">${desc}</div></td>
+      <td class="r">${qty}</td>
+      <td class="r">${um}.</td>
+      <td class="r">${priceFmt}</td>
+      <td class="r"><strong>${totalFmt}</strong></td>
+    </tr></tbody>
+  </table>
+  <div class="totals-wrap"><div class="totals">
+    <div class="total-row">
+      <span class="tl">${bi('Subtotal','Subtotal')}</span>
+      <span class="tv">${totalFmt} ${ccy}</span>
+    </div>
+    <div class="total-row">
+      <span class="tl">${bi('TVA — neplătitor art. 310','VAT — exempt art. 310')}</span>
+      <span class="tv">0,00 ${ccy}</span>
+    </div>
+    <div class="total-row grand">
+      <span class="tl">${bi('Total de plată','Amount due')}</span>
+      <span class="tv">${totalInt}<span class="dec">,${totalDec}</span><span class="ccy">${ccy}</span></span>
+    </div>
+  </div></div>
+  <div class="payment-section">
+    <div>
+      <div class="pay-label">${bi('Conturi bancare','Bank accounts')}</div>
+      ${ibanRows}
+    </div>
+    <div>
+      <div class="pay-label">${bi('Detalii plată','Payment details')}</div>
+      <div class="pay-detail-line">
+        <span class="pdl">${bi('Dată emitere','Issue date')}</span>
+        <span class="pdv">${emitere}${isBilingual ? ` / ${emitereEN}` : ''}</span>
+      </div>
+      <div class="pay-detail-line">
+        <span class="pdl">${bi('Scadență','Due date')}</span>
+        <span class="pdv">${scadenta}${isBilingual ? ` / ${scadentaEN}` : ''}</span>
+      </div>
+      <div class="pay-detail-line">
+        <span class="pdl">${bi('Referință','Reference')}</span>
+        <span class="pdv">${invoiceNum}</span>
+      </div>
+    </div>
+  </div>
+  <div class="mentions">
+    <p>${S.ment || 'Factura circulă fara alte detalii.'}${isBilingual ? ' / ' + (S.ment || 'Invoice issued without additional details.') : ''} ${bi('Neplătitor de TVA conform art. 310 Cod Fiscal.','VAT exempt pursuant to art. 310 Romanian Tax Code.')}</p>
+  </div>
+  <div class="inv-footer">
+    <div class="footer-brand">Bono</div>
+    <div class="footer-meta"><div>Bono Fintech SRL · CUI RO1238808</div><div>one@bono.ro · bono.ro</div></div>
+  </div>
+</div></body></html>`;
+
+  const blob = new Blob([html], {type: 'text/html'});
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href     = url;
+  a.target   = '_blank';
+  a.rel      = 'noopener';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(() => URL.revokeObjectURL(url), 10000);
+}
+
+
+/* ── More menu (S5 card) ── */
+function toggleMoreMenu() {
+  const menu = document.getElementById('suc-more-menu');
+  if (!menu) return;
+  const isHidden = menu.style.display === 'none' || menu.style.display === '';
+  menu.style.display = isHidden ? 'block' : 'none';
+}
+document.addEventListener('click', e => {
+  const btn  = document.getElementById('suc-more-btn');
+  const menu = document.getElementById('suc-more-menu');
+  if (!menu || !btn) return;
+  if (!btn.contains(e.target) && !menu.contains(e.target)) {
+    menu.style.display = 'none';
+  }
+});
+
+/* ── Avatar color ── */
+function avColor(s) { return 'av-'+(s.trim().split('').reduce((n,c)=>n+c.charCodeAt(0),0)%6); }
+
+/* ── Init ── */
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.inv-icon,.co-avatar').forEach(el => el.classList.add(avColor(el.textContent.trim())));
+  document.fonts.ready.then(sizeAmtInput);
+
+  // Handle resize: if was on desktop right panel and now mobile, close panel
+  window.addEventListener('resize', () => {
+    if (window.innerWidth < 1024 && S.activePanel) {
+      closeRightPanel();
+    }
+  });
+});
+</script>
+<!-- offscreen mirror for input sizing — must be outside any display:none container -->
+<span id="amt-mirror" aria-hidden="true" style="position:fixed;left:-9999px;top:-9999px;pointer-events:none;white-space:pre;font-weight:700;letter-spacing:-.045em;line-height:1;font-variant-numeric:tabular-nums;font-family:'Inter',sans-serif;visibility:hidden"></span>
+</body>
+</html>
