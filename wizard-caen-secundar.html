@@ -1,0 +1,777 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Activități CAEN secundare — Bono</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  /* ═════════════════════════════════════════════════════════════
+     BONO DS v6 — embed minimal: tokens, base, componente folosite.
+     Toate stilurile vin din bono-ds.css. Zero clase inventate.
+     ═════════════════════════════════════════════════════════════ */
+  :root {
+    --c-pink:#EE4379; --c-pink-deep:#C9255B;
+    --c-pink-tint:#FDE7F0; --c-pink-ultra:rgba(238,67,121,0.06);
+    --c-accent:var(--c-pink); --c-accent-deep:var(--c-pink-deep);
+    --c-accent-tint:var(--c-pink-tint); --c-accent-ultra:var(--c-pink-ultra);
+    --c-white:#FFFFFF; --c-bej-0:#FBFAF7; --c-bej-1:#EFEBE4;
+    --c-dark:#110D10; --c-dark-mid:#4A4448;
+    --c-ink:#110D10; --c-fog:#7A7570; --c-mist:#ABA59E;
+    --c-rule-card:rgba(17,13,16,0.12);
+    --c-rule:rgba(17,13,16,0.10);
+    --c-rule-soft:rgba(17,13,16,0.06);
+    --c-success:#1F7A4D; --c-success-bg:#ECF7F1;
+    --c-warn:#B8580A; --c-warn-bg:#FBF1E2;
+    --c-error:#B91C1C; --c-error-bg:#FCEAEA;
+    --r-xs:6px; --r-sm:10px; --r-md:14px;
+    --r-lg:20px; --r-xl:24px; --r-pill:9999px;
+    --sp-4:4px; --sp-8:8px; --sp-12:12px; --sp-16:16px;
+    --sp-24:24px; --sp-28:28px; --sp-40:40px;
+    --sh-sm:0 1px 3px rgba(17,13,16,0.06), 0 1px 2px rgba(17,13,16,0.04);
+    --sh-pink:0 6px 16px rgba(238,67,121,0.30);
+  }
+
+  *, *::before, *::after { box-sizing:border-box; }
+  html, body { margin:0; padding:0; }
+  body {
+    background:var(--c-bej-0); color:var(--c-ink);
+    font-family:'Inter', system-ui, sans-serif;
+    font-size:16px; line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  button { font-family:inherit; cursor:pointer; }
+  em { font-style:italic; }
+
+  /* Focus */
+  *:focus { outline:none; }
+  *:focus-visible { outline:2px solid var(--c-fog); outline-offset:3px; border-radius:var(--r-sm); }
+  .btn:focus-visible { border-radius:var(--r-pill); outline-offset:3px; }
+  .btn.lg:focus-visible { border-radius:var(--r-xl); }
+  .input:focus-visible { outline:none; }
+
+  /* Tipografie DS */
+  .t60, .t-display { font-weight:700; font-size:clamp(36px,5.5vw,60px); letter-spacing:-0.04em; line-height:1.10; margin:0; color:var(--c-ink); }
+  .t48, .t-h1 { font-weight:700; font-size:clamp(32px,4.5vw,48px); letter-spacing:-0.03em; line-height:1.08; margin:0; color:var(--c-ink); }
+  .t40, .t-h2 { font-weight:700; font-size:clamp(28px,3.8vw,40px); letter-spacing:-0.03em; line-height:1.15; margin:0; color:var(--c-ink); }
+  .t32, .t-h3 { font-weight:700; font-size:clamp(24px,3.2vw,32px); letter-spacing:-0.02em; line-height:1.19; margin:0; color:var(--c-ink); }
+  .t28 { font-weight:700; font-size:clamp(22px,2.8vw,28px); letter-spacing:-0.02em; line-height:1.21; margin:0; color:var(--c-ink); }
+  .t60 em, .t48 em, .t40 em, .t32 em, .t28 em {
+    font-family:'Fraunces', serif; font-style:italic; font-weight:600;
+    color:var(--c-pink); letter-spacing:inherit;
+  }
+  .t24, .t-lead { font-family:'Inter', sans-serif; font-weight:400; font-size:24px; line-height:30px; letter-spacing:-0.01em; color:var(--c-ink); margin:0; }
+  .t24 strong, .t-lead strong { font-weight:600; color:var(--c-ink); }
+  .t18 { font-family:'Inter', sans-serif; font-weight:600; font-size:18px; line-height:24px; letter-spacing:-0.01em; color:var(--c-ink); margin:0; }
+  .t16, .t-body { font-family:'Inter', sans-serif; font-weight:400; font-size:16px; line-height:24px; color:var(--c-ink); margin:0; }
+  .t16 strong, .t-body strong { font-weight:600; color:var(--c-ink); }
+  .t14, .t-meta { font-family:'Inter', sans-serif; font-weight:500; font-size:14px; line-height:20px; color:var(--c-fog); margin:0; }
+  .t12, .t-eyebrow {
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'Inter', sans-serif;
+    font-size:12px; font-weight:600; line-height:16px;
+    letter-spacing:0.10em; text-transform:uppercase;
+    color:var(--c-fog); margin:0;
+  }
+  .t12 .dot, .t-eyebrow .dot { width:5px; height:5px; border-radius:50%; background:var(--c-pink); }
+  @media (max-width:768px) {
+    .t24, .t-lead { font-size:20px; line-height:26px; }
+  }
+
+  /* Buttons */
+  .btn {
+    height:40px; padding:0 24px;
+    border-radius:var(--r-lg);
+    font-family:'Inter', sans-serif;
+    font-size:14px; font-weight:600; letter-spacing:-0.005em;
+    border:none; cursor:pointer;
+    display:inline-flex; align-items:center; justify-content:center; gap:7px;
+    transition:all 140ms; white-space:nowrap;
+  }
+  .btn:disabled { opacity:0.4; cursor:not-allowed; }
+  .btn.primary { background:var(--c-accent); color:#fff; }
+  .btn.primary:hover:not(:disabled) { background:var(--c-accent-deep); transform:translateY(-1px); box-shadow:var(--sh-pink); }
+  .btn.secondary { background:var(--c-bej-1); color:var(--c-ink); }
+  .btn.secondary:hover:not(:disabled) { filter:brightness(0.97); }
+  .btn.ghost { background:transparent; color:var(--c-fog); }
+  .btn.ghost:hover:not(:disabled) { color:var(--c-ink); background:var(--c-bej-1); }
+  .btn.dark { background:var(--c-dark); color:#fff; }
+  .btn.dark:hover:not(:disabled) { background:var(--c-dark-mid); transform:translateY(-1px); }
+  .btn.outline { background:transparent; color:var(--c-ink); box-shadow:inset 0 0 0 1px var(--c-rule); }
+  .btn.outline:hover:not(:disabled) { background:var(--c-bej-1); }
+  .btn.lg { height:44px; padding:0 32px; font-size:16px; border-radius:var(--r-xl); }
+  .btn.sm { height:30px; padding:0 18px; font-size:13px; border-radius:var(--r-pill); }
+  .btn.xs { height:26px; padding:0 14px; font-size:12px; border-radius:var(--r-pill); }
+  .btn.icon-only { padding:0; aspect-ratio:1; }
+
+  /* Inputs */
+  .input {
+    height:40px; padding:0 16px;
+    background:var(--c-white);
+    border:1px solid var(--c-rule-card);
+    border-radius:var(--r-lg);
+    font-family:'Inter', sans-serif;
+    font-size:14px; font-weight:400; line-height:20px;
+    color:var(--c-ink); width:100%;
+    transition:border-color 140ms, background 140ms, box-shadow 140ms;
+  }
+  .input::placeholder { color:var(--c-mist); }
+  .input:focus { outline:none; border-color:var(--c-fog); box-shadow:0 0 0 3px rgba(122,117,112,0.14); }
+  .input.lg { height:44px; padding:0 20px; font-size:16px; }
+
+  .field { display:flex; flex-direction:column; gap:4px; }
+  .field-label {
+    font-family:'Inter', sans-serif;
+    font-size:12px; font-weight:500; line-height:16px;
+    letter-spacing:0.04em; color:var(--c-fog); padding-left:16px;
+  }
+
+  .search-wrap { position:relative; display:flex; align-items:center; }
+  .search-wrap .search-ic {
+    position:absolute; left:16px; top:50%; transform:translateY(-50%);
+    color:var(--c-fog); pointer-events:none; width:16px; height:16px;
+  }
+  .search-wrap .input { padding-left:40px; padding-right:44px; }
+
+  /* Badges */
+  .badge {
+    display:inline-flex; align-items:center; gap:5px;
+    padding:3px 9px; border-radius:var(--r-pill);
+    font-family:'Inter', sans-serif;
+    font-size:11px; font-weight:500;
+    letter-spacing:0.04em; text-transform:uppercase;
+    white-space:nowrap;
+  }
+  .badge.success { background:var(--c-success-bg); color:var(--c-success); }
+  .badge.pink    { background:var(--c-pink-tint);  color:var(--c-pink-deep); }
+  .badge.neutral { background:var(--c-bej-1);      color:var(--c-fog); }
+  .badge.dark    { background:var(--c-dark);       color:#fff; }
+  .badge.filled.pink { background:var(--c-pink);   color:#fff; }
+  .badge.filled.neutral { background:var(--c-ink); color:#fff; }
+  .badge .dot { width:5px; height:5px; border-radius:50%; background:currentColor; opacity:0.85; }
+  .badge.sm { padding:1px 7px; font-size:11px; }
+
+  /* Cards */
+  .card {
+    background:var(--c-white);
+    border:1px solid var(--c-rule-card);
+    border-radius:var(--r-xl);
+    padding:24px;
+  }
+  .card.tonal { background:var(--c-bej-1); border:none; }
+  .card.sm { padding:18px; }
+
+  /* Alert */
+  .alert {
+    border-radius:var(--r-md); padding:14px 16px;
+    display:flex; align-items:flex-start; gap:12px;
+    font-family:'Inter', sans-serif; font-size:14px; line-height:1.5;
+  }
+  .alert .ic { flex-shrink:0; margin-top:1px; }
+  .alert.info  { background:var(--c-bej-1); color:var(--c-ink); }
+  .alert.brand {
+    background:var(--c-pink-ultra); color:var(--c-pink-deep);
+    border:1px solid color-mix(in oklab, var(--c-pink) 18%, var(--c-rule));
+  }
+  .alert strong { color:inherit; font-weight:600; }
+
+  /* Avatar — folosit pentru iconițe contextuale */
+  .avatar {
+    width:36px; height:36px; border-radius:50%;
+    background:var(--c-pink); color:#fff;
+    display:inline-flex; align-items:center; justify-content:center;
+    font-family:'Inter', sans-serif; font-size:11px; font-weight:600;
+    flex-shrink:0;
+  }
+  .avatar.lg { width:44px; height:44px; font-size:13px; }
+  .avatar.sm { width:28px; height:28px; font-size:10px; }
+  .avatar.dark { background:var(--c-dark); }
+  .avatar.tinted { background:var(--c-pink-tint); color:var(--c-pink-deep); }
+
+  /* Check-item card — DS native */
+  .check-group { display:flex; flex-direction:column; gap:10px; }
+  .check-item {
+    display:inline-flex; align-items:flex-start; gap:10px;
+    cursor:pointer; user-select:none;
+  }
+  .check-item input {
+    flex-shrink:0; margin:1px 0 0;
+    appearance:none; -webkit-appearance:none;
+    width:18px; height:18px;
+    background:var(--c-white);
+    border:1.5px solid var(--c-rule-card);
+    border-radius:var(--r-xs);
+    cursor:pointer; position:relative;
+    transition:border-color 140ms, background 140ms, box-shadow 140ms;
+  }
+  .check-item input:not(:checked):hover { border-color:var(--c-fog); background:var(--c-bej-0); }
+  .check-item input:checked { background:var(--c-accent); border-color:var(--c-accent); }
+  .check-item input:checked::after {
+    content:''; position:absolute; inset:0;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18' fill='none'%3E%3Cpath d='M4.5 9L7.5 12L13.5 6' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat:no-repeat; background-position:center;
+  }
+  .check-item input:focus-visible { outline:2px solid var(--c-fog); outline-offset:3px; }
+  .check-label {
+    font-family:'Inter', sans-serif;
+    font-size:14px; line-height:20px;
+    color:var(--c-ink); flex:1; min-width:0;
+  }
+  .check-label .sublabel {
+    display:block; font-size:12px; line-height:16px;
+    color:var(--c-fog); margin-top:2px;
+  }
+  .check-item.card {
+    display:flex; width:100%;
+    padding:14px 16px; align-items:center; gap:12px;
+    border:1.5px solid var(--c-rule-card);
+    border-radius:var(--r-lg);
+    background:var(--c-white);
+    transition:border-color 140ms, background 140ms;
+  }
+  .check-item.card:hover { border-color:var(--c-fog); }
+  .check-item.card:has(input:checked) { border-color:var(--c-accent); background:var(--c-accent-ultra); }
+
+  /* Utilities DS */
+  .stack-xs > * + * { margin-top:var(--sp-4); }
+  .stack-sm > * + * { margin-top:var(--sp-8); }
+  .stack    > * + * { margin-top:var(--sp-16); }
+  .stack-lg > * + * { margin-top:var(--sp-24); }
+  .row    { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  .row.sm { gap:6px; }
+  .row.lg { gap:16px; }
+  .row.top { align-items:flex-start; }
+  .row.between { justify-content:space-between; }
+  .divider { height:1px; background:var(--c-rule-soft); border:none; margin:20px 0; }
+
+  /* ═════════════════════════════════════════════════════════════
+     Structural shells (layout primitives — fără stiluri decorative)
+     ═════════════════════════════════════════════════════════════ */
+  .stage {
+    height:100vh; height:100dvh;
+    width:100%; background:var(--c-bej-0);
+    display:flex; justify-content:center;
+  }
+  .app {
+    width:100%; max-width:480px;
+    height:100vh; height:100dvh;
+    background:var(--c-bej-0);
+    display:flex; flex-direction:column;
+    overflow:hidden; position:relative;
+  }
+  .slides {
+    flex:1; display:flex; width:500%;
+    transform:translateX(0%);
+    transition:transform 360ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change:transform;
+  }
+  .slide {
+    width:20%; height:100%;
+    display:flex; flex-direction:column; overflow:hidden;
+  }
+  .slide-head {
+    flex-shrink:0; padding:8px 20px 4px;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:10px; background:var(--c-bej-0);
+  }
+  .slide-body {
+    flex:1; overflow-y:auto;
+    padding:8px 20px 24px;
+    -webkit-overflow-scrolling:touch;
+  }
+  .slide-cta {
+    flex-shrink:0;
+    padding:12px 20px calc(20px + env(safe-area-inset-bottom));
+    background:linear-gradient(to top, var(--c-bej-0) 70%, rgba(251,250,247,0));
+    display:flex; flex-direction:column; gap:8px;
+  }
+  .slide-cta .btn { width:100%; }
+
+  /* Search clear button position */
+  .search-clear-pos { position:absolute; right:6px; top:50%; transform:translateY(-50%); }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <div class="app">
+    <div class="slides" id="slides">
+
+      <!-- ─── 1. WELCOME ─── -->
+      <section class="slide" data-slide="welcome">
+        <div class="slide-head">
+          <span style="width:30px"></span>
+          <span class="t-eyebrow"><span class="dot"></span>Pas 4 din 6</span>
+          <span style="width:30px"></span>
+        </div>
+        <div class="slide-body">
+          <span class="avatar tinted lg" aria-hidden="true" style="margin-bottom:18px">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 7L12 2L21 7M3 7V17L12 22M3 7L12 12M12 22L21 17V7M12 22V12M21 7L12 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+
+          <h1 class="t32" style="margin-bottom:10px">Adaugă <em>activități</em> secundare</h1>
+          <p class="t16" style="color:var(--c-fog); margin-bottom:24px">
+            Pe lângă activitatea principală, firma ta poate desfășura și alte coduri CAEN. Le poți adăuga acum sau mai târziu.
+          </p>
+
+          <div class="card sm" style="margin-bottom:24px">
+            <div class="t-eyebrow"><span class="dot"></span>Caen principal</div>
+            <div class="row" style="margin-top:10px; gap:12px">
+              <span class="badge pink">4791</span>
+              <p class="t16"><strong>Vânzare prin internet</strong></p>
+            </div>
+          </div>
+
+          <div class="t-eyebrow" style="margin-bottom:14px"><span class="dot"></span>De ce contează</div>
+
+          <div class="stack-lg">
+            <div class="row top" style="gap:14px">
+              <span class="avatar tinted" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 11.5C21 16.74 16.74 21 11.5 21C6.26 21 2 16.74 2 11.5C2 6.26 6.26 2 11.5 2C13.5 2 15.37 2.62 16.93 3.68" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M22 4L11.5 14.5L8 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <div style="flex:1">
+                <p class="t16"><strong>Mai multă flexibilitate</strong></p>
+                <p class="t14" style="margin-top:2px">Emiți facturi pe orice activitate adăugată, fără modificări ulterioare la Registrul Comerțului.</p>
+              </div>
+            </div>
+
+            <div class="row top" style="gap:14px">
+              <span class="avatar tinted" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 21V8L12 3L21 8V21M3 21H21M9 21V12H15V21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <div style="flex:1">
+                <p class="t16"><strong>Compatibil cu finanțări</strong></p>
+                <p class="t14" style="margin-top:2px">Anumite programe cer coduri specifice. Adăugându-le acum, eviți drumuri ulterioare la notar.</p>
+              </div>
+            </div>
+
+            <div class="row top" style="gap:14px">
+              <span class="avatar tinted" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2V22M5 8L12 5L19 8M2 12L12 9L22 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <div style="flex:1">
+                <p class="t16"><strong>Pregătit pentru viitor</strong></p>
+                <p class="t14" style="margin-top:2px">Adaugi o linie de business nouă fără să mai depui un act adițional separat.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="alert info" style="margin-top:24px">
+            <span class="ic" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"/><path d="M12 8V13M12 17H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </span>
+            <span>Poți alege oricâte activități secundare, fără cost suplimentar la înființare.</span>
+          </div>
+        </div>
+        <div class="slide-cta">
+          <button class="btn primary lg" onclick="go('recomandari')">Alege activitățile</button>
+          <button class="btn ghost sm" onclick="go('confirmare-skip')">Sari pasul</button>
+        </div>
+      </section>
+
+      <!-- ─── 2. RECOMANDĂRI ─── -->
+      <section class="slide" data-slide="recomandari">
+        <div class="slide-head">
+          <button class="btn ghost icon-only sm" onclick="go('welcome')" aria-label="Înapoi">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <span class="t-eyebrow"><span class="dot"></span>Recomandări</span>
+          <button class="btn secondary sm" onclick="go('cos')" aria-label="Vezi coșul">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L5.4 5M7 13L4.7 15.3C4.07 15.93 4.51 17 5.41 17H17M17 17C15.9 17 15 17.9 15 19C15 20.1 15.9 21 17 21C18.1 21 19 20.1 19 19C19 17.9 18.1 17 17 17ZM9 19C9 20.1 8.1 21 7 21C5.9 21 5 20.1 5 19C5 17.9 5.9 17 7 17C8.1 17 9 17.9 9 19Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="badge filled pink" id="reco-cart-pip">0</span>
+          </button>
+        </div>
+        <div class="slide-body">
+          <h2 class="t28" style="margin-bottom:8px">Sugestii pentru <em>profilul tău</em></h2>
+          <p class="t14" style="margin-bottom:20px">Bazat pe firme similare cu CAEN 4791 — Vânzare prin internet.</p>
+
+          <div class="check-group" id="reco-list"></div>
+
+          <div class="alert brand" style="margin-top:20px">
+            <span class="ic" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2L14.39 8.26L21 9.27L16 13.97L17.18 20.7L12 17.77L6.82 20.7L8 13.97L3 9.27L9.61 8.26L12 2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            </span>
+            <span>Procentul indică din câte firme similare cu a ta au și acest cod CAEN.</span>
+          </div>
+        </div>
+        <div class="slide-cta">
+          <button class="btn primary lg" onclick="go('cos')" id="reco-cta">
+            <span id="reco-cta-text">Mergi la coș</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ─── 3. COȘ ─── -->
+      <section class="slide" data-slide="cos">
+        <div class="slide-head">
+          <button class="btn ghost icon-only sm" onclick="goBack('cos')" aria-label="Înapoi">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <span class="t-eyebrow"><span class="dot"></span>Coșul tău</span>
+          <span style="width:30px"></span>
+        </div>
+        <div class="slide-body">
+          <h2 class="t28" style="margin-bottom:8px">Activități <em>adăugate</em></h2>
+          <p class="t14" id="cos-subtitle" style="margin-bottom:20px">0 activități selectate</p>
+
+          <div class="row" id="cart-toolbar" style="display:none; margin-bottom:16px; gap:8px; flex-wrap:nowrap">
+            <button class="btn secondary sm" onclick="go('recomandari')" style="flex:1">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2L14.39 8.26L21 9.27L16 13.97L17.18 20.7L12 17.77L6.82 20.7L8 13.97L3 9.27L9.61 8.26L12 2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+              Recomandări
+            </button>
+            <button class="btn secondary sm" onclick="go('search')" style="flex:1">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              Caută CAEN
+            </button>
+          </div>
+
+          <div id="cos-list" class="stack-sm"></div>
+
+          <div class="alert info" id="cos-info" style="margin-top:20px; display:none">
+            <span class="ic" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"/><path d="M12 8V13M12 17H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </span>
+            <span>Codurile selectate vor apărea în actul constitutiv al firmei.</span>
+          </div>
+        </div>
+        <div class="slide-cta" id="cos-cta-wrap" style="display:none">
+          <button class="btn primary lg" onclick="go('confirmare')" id="cos-cta">
+            <span id="cos-cta-text">Confirmă</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ─── 4. SEARCH ─── -->
+      <section class="slide" data-slide="search">
+        <div class="slide-head">
+          <button class="btn ghost icon-only sm" onclick="go('cos')" aria-label="Înapoi la coș">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <span class="t-eyebrow"><span class="dot"></span>Caută CAEN</span>
+          <span style="width:30px"></span>
+        </div>
+        <div class="slide-body">
+          <div class="search-wrap" style="margin-bottom:18px">
+            <span class="search-ic" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </span>
+            <input type="text" class="input" id="search-input" placeholder="Caută cod sau denumire" autocomplete="off">
+            <button class="btn ghost icon-only sm search-clear-pos" id="search-clear" aria-label="Șterge" onclick="clearSearch()" style="display:none">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+
+          <div id="search-results" class="stack-sm"></div>
+        </div>
+        <div class="slide-cta" id="search-cta-wrap" style="display:none">
+          <button class="btn primary lg" onclick="confirmSearchSession()" id="search-cta">
+            <span id="search-cta-text">Adaugă</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ─── 5. CONFIRMARE ─── -->
+      <section class="slide" data-slide="confirmare">
+        <div class="slide-head">
+          <span style="width:30px"></span>
+          <span class="t-eyebrow"><span class="dot"></span>Confirmat</span>
+          <span style="width:30px"></span>
+        </div>
+        <div class="slide-body">
+          <span class="avatar tinted lg" aria-hidden="true" style="background:var(--c-success-bg); color:var(--c-success); margin-bottom:18px">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+
+          <h1 class="t32" style="margin-bottom:10px"><em>Gata</em>, activitățile sunt salvate</h1>
+          <p class="t16" id="final-subtitle" style="color:var(--c-fog); margin-bottom:24px">Continuăm cu pasul următor din dosarul firmei.</p>
+
+          <div class="t-eyebrow" style="margin-bottom:12px"><span class="dot"></span>Activitatea principală</div>
+          <div class="card sm" style="margin-bottom:24px">
+            <div class="row between" style="flex-wrap:nowrap">
+              <div class="row" style="gap:10px; flex:1; min-width:0">
+                <span class="badge pink">4791</span>
+                <p class="t16"><strong>Vânzare prin internet</strong></p>
+              </div>
+              <span class="badge dark">Principală</span>
+            </div>
+          </div>
+
+          <div class="t-eyebrow" id="final-secondary-eyebrow" style="margin-bottom:12px"><span class="dot"></span>Activități secundare</div>
+          <div class="stack-sm" id="final-list"></div>
+        </div>
+        <div class="slide-cta">
+          <button class="btn primary lg" onclick="restart()">Continuă cu dosarul</button>
+          <button class="btn ghost sm" onclick="go('cos')">Modifică selecția</button>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  // ─── State ─────────────────────────────────────────────
+  const ALL_CAEN = [
+    { code:'4789', name:'Comerț cu amănuntul prin standuri, chioșcuri și piețe al altor produse', match:89, why:'Vând și offline pe lângă online' },
+    { code:'5320', name:'Alte activități poștale și de curier', match:67, why:'Gestionează propria livrare' },
+    { code:'8299', name:'Alte activități de servicii suport pentru întreprinderi', match:54, why:'Servicii adiacente comerțului' },
+    { code:'7311', name:'Activități ale agențiilor de publicitate', match:null },
+    { code:'7312', name:'Servicii de reprezentare media', match:null },
+    { code:'6201', name:'Activități de realizare a software-ului la comandă', match:null },
+    { code:'6202', name:'Activități de consultanță în tehnologia informației', match:null },
+    { code:'6209', name:'Alte activități de servicii privind tehnologia informației', match:null },
+    { code:'4711', name:'Comerț cu amănuntul în magazine nespecializate, cu vânzare predominantă alimentară', match:null },
+    { code:'8211', name:'Activități combinate de secretariat', match:null },
+    { code:'8230', name:'Organizarea de conferințe și expoziții', match:null },
+    { code:'4690', name:'Comerț cu ridicata nespecializat', match:null },
+    { code:'9609', name:'Alte activități de servicii personale', match:null },
+    { code:'8559', name:'Alte forme de învățământ', match:null }
+  ];
+  const RECOS = ALL_CAEN.filter(c => c.match !== null).sort((a,b) => b.match - a.match);
+
+  const selected = new Set();
+  let searchSessionAdds = new Set();
+
+  // ─── Navigation ────────────────────────────────────────
+  const slideOrder = ['welcome', 'recomandari', 'cos', 'search', 'confirmare'];
+  const slidesEl = document.getElementById('slides');
+  let currentSlide = 'welcome';
+  let prevSlideForCos = 'recomandari';
+
+  function go(name) {
+    if (name === 'confirmare-skip') { selected.clear(); name = 'confirmare'; }
+    if (name === 'cos') prevSlideForCos = currentSlide === 'search' ? 'search' : 'recomandari';
+    if (name === 'search') {
+      searchSessionAdds = new Set();
+      document.getElementById('search-input').value = '';
+      clearSearchUI();
+    }
+    currentSlide = name;
+    const idx = slideOrder.indexOf(name);
+    slidesEl.style.transform = `translateX(-${idx * 20}%)`;
+    renderAll();
+  }
+  function goBack(from) {
+    if (from === 'cos') go(prevSlideForCos === 'search' ? 'recomandari' : prevSlideForCos);
+  }
+  function restart() { selected.clear(); searchSessionAdds = new Set(); go('welcome'); }
+
+  // ─── RO plural ─────────────────────────────────────────
+  function plActivitate(n) { return n === 1 ? 'activitate' : 'activități'; }
+  function selectedSummary() {
+    const n = selected.size;
+    return `${n} ${plActivitate(n)} ${n === 1 ? 'selectată' : 'selectate'}`;
+  }
+
+  // ─── Toggle ────────────────────────────────────────────
+  function toggleSelect(code, source) {
+    if (selected.has(code)) {
+      selected.delete(code);
+      if (source === 'search') searchSessionAdds.delete(code);
+    } else {
+      selected.add(code);
+      if (source === 'search') searchSessionAdds.add(code);
+    }
+    renderAll();
+  }
+  function removeFromCart(code) {
+    selected.delete(code);
+    searchSessionAdds.delete(code);
+    renderAll();
+  }
+
+  // ─── Render: Recomandări ───────────────────────────────
+  function renderReco() {
+    const listEl = document.getElementById('reco-list');
+    listEl.innerHTML = RECOS.map(c => `
+      <label class="check-item card" style="align-items:flex-start">
+        <input type="checkbox" ${selected.has(c.code) ? 'checked' : ''} onchange="toggleSelect('${c.code}','reco')">
+        <span class="check-label">
+          <span class="row" style="gap:8px; margin-bottom:6px">
+            <span class="badge pink">${c.code}</span>
+            <span class="badge success">${c.match}% match</span>
+          </span>
+          <span style="display:block; color:var(--c-ink); font-weight:500">${c.name}</span>
+          <span class="sublabel">${c.why}</span>
+        </span>
+      </label>
+    `).join('');
+
+    const n = selected.size;
+    document.getElementById('reco-cart-pip').textContent = n;
+
+    const cta = document.getElementById('reco-cta-text');
+    cta.textContent = n === 0 ? 'Mergi la coș' : `Vezi în coș · ${n} ${plActivitate(n)}`;
+  }
+
+  // ─── Render: Coș ───────────────────────────────────────
+  function renderCos() {
+    const listEl = document.getElementById('cos-list');
+    const sub = document.getElementById('cos-subtitle');
+    const toolbar = document.getElementById('cart-toolbar');
+    const ctaWrap = document.getElementById('cos-cta-wrap');
+    const info = document.getElementById('cos-info');
+    const n = selected.size;
+    sub.textContent = selectedSummary();
+
+    if (n === 0) {
+      toolbar.style.display = 'none';
+      ctaWrap.style.display = 'none';
+      info.style.display = 'none';
+      listEl.innerHTML = `
+        <div class="card tonal" style="text-align:center; padding:28px 20px">
+          <span class="avatar tinted" aria-hidden="true" style="margin:0 auto 14px; display:flex">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L5.4 5M7 13L4.7 15.3C4.07 15.93 4.51 17 5.41 17H17M17 17C15.9 17 15 17.9 15 19C15 20.1 15.9 21 17 21C18.1 21 19 20.1 19 19C19 17.9 18.1 17 17 17ZM9 19C9 20.1 8.1 21 7 21C5.9 21 5 20.1 5 19C5 17.9 5.9 17 7 17C8.1 17 9 17.9 9 19Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <p class="t18" style="margin-bottom:6px">Coșul tău e gol</p>
+          <p class="t14" style="margin-bottom:18px">Alege din recomandările pentru profilul tău sau caută un cod CAEN anume.</p>
+          <div class="row" style="justify-content:center; gap:8px">
+            <button class="btn primary sm" onclick="go('recomandari')">Vezi recomandări</button>
+            <button class="btn outline sm" onclick="go('search')">Caută CAEN</button>
+          </div>
+        </div>
+      `;
+    } else {
+      toolbar.style.display = 'flex';
+      ctaWrap.style.display = 'flex';
+      info.style.display = 'flex';
+      listEl.innerHTML = Array.from(selected).map(code => {
+        const c = ALL_CAEN.find(x => x.code === code);
+        if (!c) return '';
+        return `
+          <div class="card sm" style="padding:14px 16px">
+            <div class="row between" style="flex-wrap:nowrap; gap:12px">
+              <span class="badge pink">${c.code}</span>
+              <p class="t14" style="color:var(--c-ink); flex:1; min-width:0">${c.name}</p>
+              <button class="btn ghost icon-only sm" onclick="removeFromCart('${c.code}')" aria-label="Scoate din coș">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+      document.getElementById('cos-cta-text').textContent = `Confirmă · ${n} ${plActivitate(n)}`;
+    }
+  }
+
+  // ─── Render: Search ────────────────────────────────────
+  function clearSearchUI() {
+    document.getElementById('search-results').innerHTML = `
+      <div class="card tonal" style="text-align:center; padding:28px 20px">
+        <span class="avatar tinted" aria-hidden="true" style="margin:0 auto 14px; display:flex">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </span>
+        <p class="t18" style="margin-bottom:6px">Începe să cauți</p>
+        <p class="t14">Scrie cel puțin 2 caractere — cod (ex. 4789) sau cuvânt din denumire.</p>
+      </div>
+    `;
+    document.getElementById('search-clear').style.display = 'none';
+    renderSearchCta();
+  }
+  function clearSearch() {
+    document.getElementById('search-input').value = '';
+    clearSearchUI();
+  }
+
+  function renderSearch() {
+    const q = (document.getElementById('search-input').value || '').trim().toLowerCase();
+    const clearBtn = document.getElementById('search-clear');
+    const resultsEl = document.getElementById('search-results');
+    clearBtn.style.display = q.length > 0 ? 'inline-flex' : 'none';
+
+    if (q.length < 2) { clearSearchUI(); document.getElementById('search-input').value = q; renderSearchCta(); return; }
+
+    const matches = ALL_CAEN.filter(c =>
+      c.code.includes(q) || c.name.toLowerCase().includes(q)
+    );
+
+    if (matches.length === 0) {
+      resultsEl.innerHTML = `
+        <div class="card tonal" style="text-align:center; padding:28px 20px">
+          <p class="t18" style="margin-bottom:6px">Niciun rezultat pentru „${q}"</p>
+          <p class="t14">Încearcă un alt cuvânt sau un cod CAEN diferit.</p>
+        </div>
+      `;
+    } else {
+      resultsEl.innerHTML = matches.map(c => {
+        const inCart = selected.has(c.code);
+        return `
+          <div class="card sm" style="padding:12px 14px; ${inCart ? 'border-color:var(--c-accent); background:var(--c-accent-ultra)' : ''}">
+            <div class="row between" style="flex-wrap:nowrap; gap:10px">
+              <span class="badge ${inCart ? 'pink' : 'neutral'}">${c.code}</span>
+              <p class="t14" style="color:var(--c-ink); flex:1; min-width:0">${c.name}</p>
+              ${inCart
+                ? `<button class="btn secondary sm" onclick="toggleSelect('${c.code}','search')">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Adăugat
+                   </button>`
+                : `<button class="btn dark sm" onclick="toggleSelect('${c.code}','search')">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg> Adaugă
+                   </button>`}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+    renderSearchCta();
+  }
+
+  function renderSearchCta() {
+    const wrap = document.getElementById('search-cta-wrap');
+    const txt = document.getElementById('search-cta-text');
+    const n = searchSessionAdds.size;
+    if (n === 0) { wrap.style.display = 'none'; }
+    else {
+      wrap.style.display = 'flex';
+      txt.textContent = `Adaugă ${n} ${plActivitate(n)} în coș`;
+    }
+  }
+  function confirmSearchSession() { go('cos'); }
+
+  // ─── Render: Confirmare ───────────────────────────────
+  function renderFinal() {
+    const listEl = document.getElementById('final-list');
+    const eyebrow = document.getElementById('final-secondary-eyebrow');
+    const sub = document.getElementById('final-subtitle');
+    const n = selected.size;
+
+    sub.textContent = n === 0
+      ? 'Ai sărit pasul activităților secundare. Poți să le adaugi mai târziu, din contul firmei.'
+      : `Ai ales ${n} ${plActivitate(n)} pe lângă cea principală. Continuăm cu pasul următor din dosar.`;
+
+    if (n === 0) { eyebrow.style.display = 'none'; listEl.innerHTML = ''; }
+    else {
+      eyebrow.style.display = 'inline-flex';
+      listEl.innerHTML = Array.from(selected).map(code => {
+        const c = ALL_CAEN.find(x => x.code === code);
+        if (!c) return '';
+        return `
+          <div class="card sm" style="padding:14px 16px">
+            <div class="row between" style="flex-wrap:nowrap; gap:12px">
+              <div class="row" style="gap:10px; flex:1; min-width:0">
+                <span class="badge pink">${c.code}</span>
+                <p class="t14" style="color:var(--c-ink); flex:1; min-width:0">${c.name}</p>
+              </div>
+              <span class="badge success">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Adăugat
+              </span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+  }
+
+  function renderAll() {
+    renderReco(); renderCos();
+    if (currentSlide === 'search') renderSearch();
+    renderFinal();
+  }
+
+  document.getElementById('search-input').addEventListener('input', renderSearch);
+  renderAll();
+</script>
+
+</body>
+</html>
